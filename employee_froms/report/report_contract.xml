@@ -1,0 +1,456 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<data>
+<template id="report_form6_document">
+     <t t-call="web.html_container">
+        <t t-foreach="docs" t-as="o">
+            <t t-call="web.basic_layout">
+
+<style>
+    body {
+        font-family: 'Arfont';
+        font-size: 22px;
+        direction: rtl;
+        text-align: right; 
+    }
+    .container {
+        margin-top: 20px;
+    }
+    .form-title {
+        text-align: center;
+        font-weight: bold;
+        margin: 20px 0;
+        text-decoration: underline;
+    }
+    .table th, .table td {
+        vertical-align: middle;
+        text-align: center;
+    }
+    .signature-table td {
+        vertical-align: bottom;
+    }
+    .section-title {
+        text-align: center;
+        text-decoration: underline;
+        margin-top: 20px;
+        margin-bottom: 10px;
+    }
+    .borderless td, .borderless th {
+        border: none;
+    }
+    span {
+    padding-left: 10px !important;
+    }
+
+    .custom-tbody td {
+        text-align: right;
+        
+    }
+    
+    .textMargin{
+        margin-right: 10%;
+        margin-left: 0px;
+        }
+    .threetextMargin{
+       margin-right: 20%;
+        margin-left: 0px;
+    }
+</style>       
+
+
+<div class="page">
+
+    <div class="container">
+        <table class="table borderless">
+            <tbody>
+                <tr>
+                    <td style="width: 33.3333%;"><strong>الهيئة القومية للتامينات الاجتماعية</strong></td>
+                    <td style="width: 10%;"/>
+                    <td style="width: 33.3333%;"><strong>نموذج رقم (6) قرار وزاري رقم(554) لسنة 2007</strong></td>
+                </tr>
+                <tr>
+                    <td><strong>صندوق العاملين بـ</strong></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td><strong>منطقة:</strong></td>
+                    <td></td>
+                    <td><strong>وحدة:</strong></td>
+                </tr>
+                <tr>
+                    <td><strong>مكتب:</strong></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <p class="form-title">اخطار بانتهاء اشتراك مؤمن عليه</p>
+        
+
+
+<table style="width: 100%; border-collapse: collapse; margin: 0px auto;">
+    <tbody>
+        <tr>
+            <td style="width: 50%; text-align: center;" class="fr-cell-handler">
+                رقم المنشأه: <t t-esc="o.employee_id.user_partner_id.phone"/>
+            </td>
+            <td style="width: 50%; text-align: center;" class="fr-cell-fixed">
+                مسمي: <t t-esc="o.employee_id.user_partner_id.name"/>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+
+<p class="section-title">بيانات المؤمن عليه</p>
+
+<table style="width: 100%; border-collapse: collapse; margin: 0px auto;">
+    <tbody>
+        <tr>
+            <td style="width: 25%; text-align: center;" class="fr-cell-handler">
+                <span>الرقم التاميني: </span>
+                <t t-esc="o.sin_no "/>
+            </td>
+            <td style="width: 25%; text-align: center;" class="fr-cell-handler">
+                <span>الرقم القومي: </span>
+                <t t-esc="o.employee_id.identification_id"/> <!-- Assuming `o.national_id` is the correct field -->
+            </td>
+            <td style="width: 25%; text-align: center;" class="fr-cell-handler">
+                <span>الاسم: </span>
+                <t t-esc="o.employee_id.name"/>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<table style="width: 100%; border-collapse: collapse; margin: 0px auto;">
+    <tbody>
+        <tr>
+            <td style="width: 50%; text-align: center;" class="fr-cell-handler">
+                <span>تاريخ نهاية الاشتراك: </span>
+                <t t-esc="o.sin_end_date"/> 
+            </td>
+            <td style="width: 50%; text-align: center;" class="fr-cell-handler">
+                <span>سبب نهاية الاشتراك: </span>
+                <!-- <t t-esc="o.identification_id"/>  -->
+            </td>
+        </tr>
+    </tbody>
+</table>
+        <p class="section-title">بيانات محل اقامة المؤمن عليه</p>
+        <p class="textMargin">عقار رقم: <t t-esc="o.employee_id.address_home_id.street"/> شارع /حارة: <t t-esc="o.employee_id.address_home_id.street2"/></p>
+        <p class="threetextMargin">شياخة/قرية: <t t-esc="o.employee_id.address_home_id.state_id.name"/> قسم/ مركز: <t t-esc="o.employee_id.address_home_id.city"/> محافظة: <t t-esc="o.employee_id.address_home_id.city"/></p>
+
+        <p class="section-title">اقرار المؤمن عليه و المدير المسئول</p>
+
+<table class="table borderless" style="border-collapse: collapse; height: 10px; padding: 10px;">
+    <tbody class="custom-tbody">
+        <tr>
+            <td colspan="2" style="padding: 10px;">اقر بان البيانات بعاليه صحيحة و ان المؤمن عليه تسلم صورة من هذا الاخطار</td>
+        </tr>
+        <tr>
+            <td style="width: 50%; text-align: center; padding: 10px;">توقيع المؤمن عليه:</td>
+            <td style="width: 50%; text-align: center; padding: 10px;">توقيع المدير المسئول:</td>
+        </tr>
+        <tr>
+            <td style="width: 50%; text-align: center; padding: 10px;" colspan="2">تم مطابقة التوقيع بمعرفتي:</td>
+        </tr>
+    </tbody>
+</table>
+
+
+        <p class="section-title">اقرار المدير المسئول في حالة وجود نزاع</p>
+
+<table style="width: 100%; border-collapse: collapse; padding: 20px;">
+    <tbody>
+        <tr>
+            <td style="width: 50%; text-align: right; padding: 20px;">توقيع المؤمن علية :</td>
+            <td style="width: 50%; text-align: right; padding: 20px;">توقيع المدير المسؤول</td>
+        </tr>
+    </tbody>
+</table>
+<table style="width: 100%; text-align: center; padding: 20px; border-collapse: collapse;">
+    <tbody>
+        <tr>
+            <td style="width: 50%; text-align: center; padding: 20px;">مطابقة التوقيع بمعرفتي:</td>
+        </tr>
+    </tbody>
+</table>
+        
+        <table class="table table-bordered">
+            <thead class="thead-light">
+                <tr>
+                    <th>البيان</th>
+                    <th>مستلم الاخطار</th>
+                    <th>المراجع</th>
+                    <th>مسجل آلي</th>
+                    <th>مراجع آلي</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>الاسم</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>التوقيع</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>التاريخ</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <p class="textMargin">ملحوظة: يلزم التأكد بالتوقيع كل من العامل و صاحب العمل علي الإقرار الموضح خلف الاستمارة</p>
+        <!-- <p class="textMargin">(انظر خلفه)</p> -->
+    </div>
+
+
+</div>
+                    </t>
+                </t>
+            </t>
+</template>
+
+
+<template id="report_form6_documenttt">
+    <t t-call="web.html_container">
+    <t t-foreach="docs" t-as="doc">
+            <t t-call="report_form6_document" t-lang="doc.lang"/>
+        </t>
+    </t>
+</template>
+
+<template id="report_form2_documenttt">
+    <t t-call="web.html_container">
+    <t t-foreach="docs" t-as="doc">
+            <t t-call="report_form2_document" t-lang="doc.lang"/>
+        </t>
+    </t>
+</template>
+
+
+<template id="report_form2_document" >
+ <t t-foreach="docs" t-as="o">
+    <t t-call="web.basic_layout">
+<html lang="ar"> 
+        <style>
+            body {
+                font-family: 'Arfont';
+                font-size: 22px;
+                direction: rtl;
+                text-align: center;
+            }
+             td {
+            padding: 10px;
+                }
+
+            .form-title {
+                text-align: center;
+                font-weight: bold;
+                margin: 20px 0;
+            }
+            .table th, .table td {
+                vertical-align: middle;
+                text-align: center;
+            }
+            .signature-table td {
+                vertical-align: bottom;
+            }
+            .textMargin{
+                    margin-right: 10%;
+                    margin-left: 0px;
+                }
+                .threetextMargin{
+                        margin-right: 20%;
+                        margin-left: 0px;
+                    }
+                .fourtextMargin{
+                        margin-right: 40%;
+                        margin-left: 0px;
+                    }
+        </style>
+        <body>
+            <div class="">
+                <table class="table">
+                    <tbody>
+                        <tr>
+                            <td style="width: 33.3333%;">الهيئة القومية للتامين الاجتماعي</td>
+                            <td style="width: 33.3333%; " rowspan="2">
+                                <img src="https://myfiles.space/user_files/215502_d41903e41bcafa3f/215502_custom_files/img1715755995.png" style="width: 64px; height: 57.7974px;" alt="Logo"/>
+                            </td>
+                            <td style="width: 33.3333%;">نموذج رقم(2)</td>
+                        </tr>
+                        <tr>
+                            <td>مكتب</td>
+                            <td>رقم المنشأة</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p class="form-title">طلب اشتراك منشأة</p>
+                <p class="form-title">او اخطار تعديل بيانات المؤمن عليهم و اجورهم في <t t-esc="context_timestamp(datetime.datetime.today()).strftime('%Y-%m-%d')"/></p>
+
+
+          <table style="width: 100%;  padding-bottom: 20px;">
+              <tbody>
+                  <tr>
+                      <td style="width: 25%; text-align: center;">
+                          <div style="text-align: center;">
+                              <span>إسم المنشأة:</span>
+                              <t t-esc="o.employee_id.user_partner_id.name"/>
+                          </div>
+                      </td>
+                      <td style="width: 25%; text-align: center;">
+                          <div style="text-align: center;">
+                              <span>المالك:</span>
+                              <t t-esc="o.employee_id"/>
+                          </div>
+                      </td>
+                      <td style="width: 25%; text-align: center;">
+                          <div style="text-align: center;">
+                              <span>المدير المسؤول:</span>
+                              <span t-field="o.employee_id.parent_id"/>
+                    
+                          </div>
+                      </td>
+                      <td style="width: 25%; text-align: center;">
+                          <div style="text-align: center;">
+                              <span>الشكل القانوني للمؤسسة:</span>
+                              <!-- <t t-esc="o.employee_id"/> -->
+                          </div>
+                      </td>
+                  </tr>
+              </tbody>
+          </table>
+
+                <table style="width: 100%;" class="mb-2">
+                    <tbody>
+                        <tr>
+                            <td style="width: 33.3333%; text-align: center;">
+                                <div style="text-align: center;">عنوان المنشآة : <t t-esc="o.employee_id.user_partner_id.state_id.name"/></div>
+                            </td>
+                            <td style="width: 33.3333%;">
+                                <div style="text-align: center;">رقم العقار : <t t-esc="o.employee_id.user_partner_id.street2"/></div>
+                            </td>
+                            <td style="width: 33.3333%;">
+                                <div style="text-align: center;">أسم الشارع : <t t-esc="o.employee_id.user_partner_id.street"/></div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>                
+
+    <table style="width: 100%;" class="mb-2">
+        <tbody>
+            <tr>
+                <td style="width: 33.3333%; text-align: center;">
+                    <div style="text-align: center;">الشياخة/قرية: <t t-esc="o.employee_id.address_home_id.state_id.name"/></div>
+                </td>
+                <td style="width: 33.3333%;">
+                    <div style="text-align: center;">القسم/مركز: <t t-esc="o.employee_id.address_home_id.city"/></div>
+                </td>
+                <td style="width: 33.3333%;">
+                    <div style="text-align: center;">المحافظة: <t t-esc="o.employee_id.address_home_id.city"/></div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+         <p class="textMargin">نسبة تامين المرض: __________ تاريخ بدء النسبة: __________ نسبة تامين الاصابة: __________ تاريخ بدء النسبة: __________</p>
+        
+        <table style="width: 100%; padding: 10px; border-collapse: collapse;">
+            <tbody>
+                <tr>
+                    <td style="width: 24.9612%; text-align: center; padding: 10px;">
+                        <div style="text-align: center;">تاريخ التوقف/الإستمرار:</div>
+                    </td>
+                    <td style="width: 24.9613%; text-align: center; padding: 10px;">
+                        <div style="text-align: center;">سبب التوقف:</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 25%; text-align: center; padding: 10px;">
+                        <div style="text-align: center;">إنتهاء النشاط بدء من:</div>
+                    </td>
+                    <td style="width: 25%; text-align: center; padding: 10px;">
+                        <div style="text-align: center;">رقم التسجيل الضريبي للمنشأة: <t t-esc="o.employee_id.user_partner_id.vat"/></div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+                
+        <table class="table table-bordered">
+            <thead class="thead-light">
+                <tr>
+                    <th>الرقم التاميني</th>
+                    <th>اسم المؤمن عليه</th>
+                    <th>الرقم القومي</th>
+                    <th>تاريخ الالتحاق</th>
+                    <th>اجر الاشتراك</th>
+                    <th>الاجر الشامل</th>
+                </tr>
+            </thead>
+            <tbody>
+                <t t-foreach="o" t-as="rec">
+                    <tr>
+                        <td><t t-esc="rec.sin_no"/></td>
+                        <!-- <td><t t-esc="rec.employee_id.arabic_name"/></td> -->
+                        <td><t t-esc="rec.employee_id.identification_id"/></td>
+                        <td><t t-esc="rec.sin_date"/></td>
+                        <td><t t-esc="rec.wage"/></td>
+                        <td><t t-esc="rec.wage"/></td>
+                        <!-- <td><t t-esc="rec.employee_id.total_paid"/></td> -->
+                    </tr>
+                </t>
+            </tbody>
+
+        </table>
+                
+                <p class="textMargin">اقر انا______________________بصفتي_____________________ بأن عدد المؤمن عليهم__________________ عاملا</p>
+                <p class="textMargin">و ان اجور الشهر الحالي:_____ و ان جميع البيانات الواردة بهذا النموذج و ملحقاته صحيحة(الاجر الشامل لحساب التامين الصحي الشامل)</p>
+                <p class="textMargin">توقيع صاحب العمل او المدير المسئول_______________ روجعت بيانات هذا الطلب علي طلبات اشتراك المؤمن عليهم ووجدت صحيحة</p>
+
+                <table class="table signature-table">
+                    <tbody>
+                        <tr>
+                            <td>مستلم النموذج/___________________</td>
+                            <td>تم مطابقة التوقيع بمعرفتي/____________________</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <p>اخصائي الاشتراك/____________________ سجل اليا/___________________ روجع اليا/____________________</p>
+                
+                <table class="table">
+                    <tbody>
+                        <tr>
+                            <td>تحريرا في _____/______/_______20</td>
+                            <td>(انظر خلفه)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+</body>
+</html>
+    </t>
+</t>
+</template>
+
+
+
+
+
+</data>
+</odoo>

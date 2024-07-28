@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+        <record id="added_fields_partner_form" model="ir.ui.view">
+        <field name="name">partner.form.extended.added.fields</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+            <data>
+            
+                <xpath expr="//field[@name='phone']" position="after">
+                    <field name="owner_name" />
+                    <field name="building_no" />
+                </xpath>
+
+            </data>
+            
+        </field>
+    </record>    
+
+</odoo>

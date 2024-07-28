@@ -1,0 +1,14 @@
+font-face{
+    font-family: 'BerlinSansFBBold';
+    src: url('/odoohire/static/src/fonts/BerlinSansFBBold.ttf');
+}
+
+@font-face {
+    font-family: 'uglyfont';
+    src: url(/odoohire/static/src/fonts/uglyfont.ttf);
+}
+@font-face {
+    font-family: 'Arfont';
+    src: url(/employee_froms/static/src/fonts/arbold.ttf);
+}
+
