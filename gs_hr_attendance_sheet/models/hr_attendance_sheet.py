@@ -166,6 +166,8 @@ class AttendanceSheet(models.Model):
             # Compute Absence
             absence_lines = sheet.line_ids.filtered(
                 lambda l: l.diff_time > 0 and l.status == "ab")
+            
+            print(len(absence_lines))
             # Use a set to track dates
             processed_dates = set()
             unique_absence_lines = []
@@ -177,6 +179,7 @@ class AttendanceSheet(models.Model):
 
             sheet.tot_absence = sum(unique_absence_lines)
             sheet.no_absence = len(unique_absence_lines)
+            print(sheet.no_absence)
             # conmpute earlyout
             diff_lines = sheet.line_ids.filtered(
                 lambda l: l.diff_time > 0 and l.status != "ab")
@@ -265,9 +268,10 @@ class AttendanceSheet(models.Model):
             if not policy_id:
                 raise ValidationError(_(
                     'Please add Attendance Policy to the %s `s contract ' % emp.name))
-
+            print('from date ',from_date)
             all_dates = [(from_date + timedelta(days=x)) for x in
                          range((to_date - from_date).days + 1)]
+            print('all dates',all_dates)
             abs_cnt = 0
             late_cnt = []
             for day in all_dates:
@@ -282,6 +286,15 @@ class AttendanceSheet(models.Model):
                                                                      day_start,
                                                                      day_end,
                                                                      tz)
+                for shift in emp.contract_id.shift_schedule:
+                    # print('shif schedule is',shift.hr_shift)
+                    if day_start.date() >= shift.start_date and day_start.date() <= shift.end_date :
+                        calendar_id = shift.hr_shift
+                        # print('this if is true',day_start.date(),calendar_id)
+                        break
+                    else:
+                        calendar_id = emp.contract_id.resource_calendar_id
+
                 leaves = self._get_emp_leave_intervals(emp, day_start, day_end)
                 public_holiday = self.get_public_holiday(date, emp)
                 reserved_intervals = []
@@ -686,14 +699,18 @@ class AttendanceSheet(models.Model):
 
             payslip_id = payslip_obj.create(payslip_dict)
             worked_day_lines = self._get_workday_lines()
+            # Clear the existing worked days lines
+            payslip_id.worked_days_line_ids = [(5, 0, 0)]
+            print('Before this is worked days lines',payslip_id.worked_days_line_ids)
             payslip_id.worked_days_line_ids = [(0, 0, x) for x in
                                                worked_day_lines]
+            print('After this is worked days lines',payslip_id.worked_days_line_ids)
             payslip_id.compute_sheet()
-            print('contract_id ' ,payslip_id.contract_id)
-            print('struct_id',payslip_id.struct_id)
-            print('contracts[0].structure_type_id.default_struct_id.id',contracts[0].structure_type_id.default_struct_id.id)
-            print('contracts[0].struct_id',contracts[0])
-            print('contracts[0].struct_id-> ',contracts[0].struct_id)
+            # print('contract_id ' ,payslip_id.contract_id)
+            # print('struct_id',payslip_id.struct_id)
+            # print('contracts[0].structure_type_id.default_struct_id.id',contracts[0].structure_type_id.default_struct_id.id)
+            # print('contracts[0].struct_id',contracts[0])
+            # print('contracts[0].struct_id-> ',contracts[0].struct_id)
             sheet.payslip_id = payslip_id
             payslips+=payslip_id
         return payslips
@@ -752,6 +769,7 @@ class AttendanceSheet(models.Model):
             'number_of_hours': self.tot_difftime,
         }]
         worked_days_lines = overtime + late + absence + difftime
+        print(worked_days_lines)
         return worked_days_lines
 
     def create_payslip(self):
@@ -807,6 +825,7 @@ class AttendanceSheet(models.Model):
                 'number_of_days': att_sheet.no_difftime,
                 'number_of_hours': att_sheet.tot_difftime,
             }]
+            # I removed the + here +=
             worked_days_line_ids += overtime + late + absence + difftime
 
             res = {

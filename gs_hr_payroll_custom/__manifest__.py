@@ -8,7 +8,7 @@
     'category': 'Human Resources/Employees',
     'version': '0.1',
     # any module necessary for this one to work correctly
-    'depends': ['base', 'hr_payroll', 'hr_payroll_account', 'gs_hr_contract_allowance'],
+    'depends': ['base', 'hr_payroll', 'hr_payroll_account'],
     # always loaded
     'data': [
         'security/ir.model.access.csv',

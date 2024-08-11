@@ -36,7 +36,7 @@ class HrEmployeeContract(models.Model):
                                     string="Department",
                                     help="Department",
                                     required=True)
-
+    has_shifts = fields.Boolean('Has Variable Shifts')
 
 class HrSchedule(models.Model):
     _name = 'hr.shift.schedule'
@@ -56,17 +56,17 @@ class HrSchedule(models.Model):
                                  string='Company',
                                  help="Company")
 
-    @api.onchange('start_date', 'end_date')
-    def get_department(self):
-        """Adding domain to  the hr_shift field"""
-        hr_department = None
-        if self.start_date:
-            hr_department = self.rel_hr_schedule.department_id.id
-        return {
-            'domain': {
-                'hr_shift': [('hr_department', '=', hr_department)]
-            }
-        }
+    # @api.onchange('start_date', 'end_date')
+    # def get_department(self):
+    #     """Adding domain to  the hr_shift field"""
+    #     hr_department = None
+    #     if self.start_date:
+    #         hr_department = self.rel_hr_schedule.department_id.id
+    #     return {
+    #         'domain': {
+    #             'hr_shift': [('hr_department', '=', hr_department)]
+    #         }
+    #     }
 
     @api.model
     def create(self, vals):

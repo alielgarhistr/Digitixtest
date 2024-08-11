@@ -7,13 +7,20 @@
             <field name="inherit_id" ref="hr_contract.hr_contract_view_form"/>
             <field name="arch" type="xml">
                 <xpath expr="//field[@name='resource_calendar_id']" position="replace">
-                    <field name="resource_calendar_id" invisible="1"/>
+                    <!-- Modify the resource_calendar_id field visibility based on has_shifts -->
+                    <field name="resource_calendar_id" attrs="{'invisible': [('has_shifts', '=', True)]}"/>
+                </xpath>
+                <xpath expr="//field[@name='resource_calendar_id']" position="after">
+                    <!-- Add the has_shifts field -->
+                    <group  string="choose variable shifts">
+                        <field name="has_shifts"/>
+                    </group>
                 </xpath>
                 <xpath expr="//field[@name='department_id']" position="replace">
                     <field name="department_id"/>
                 </xpath>
                 <xpath expr="//group[@name='top_info_left']" position="after">
-                    <group colspan="2" string="Shift Schedule">
+                    <group colspan="2" string="Shift Schedule" attrs="{'invisible': [('has_shifts', '=', False)]}">
                         <field name="shift_schedule" nolabel="1">
                             <tree editable="1">
                                 <field name="start_date"/>
