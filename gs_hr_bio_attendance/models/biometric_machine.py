@@ -10,7 +10,7 @@
 from odoo import api, fields, models, _
 from odoo.exceptions import ValidationError, UserError
 from datetime import datetime, date
-
+import socket  # Add this import statement
 from datetime import datetime, timedelta
 
 DATETIME_FORMAT = "%Y-%m-%d %H:%M:%S"
