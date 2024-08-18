@@ -46,7 +46,7 @@ class HrContract(models.Model):
         alw_id = self.other_alw_ids.filtered(lambda x: x.code == alw_code)
         return alw_id
 
-def calculate_eg_tax(self, amount):
+    def calculate_eg_tax(self, amount):
         TAX_LEVELS = [
             [0, 40000, 0],
             [40000, 55000, 10],
