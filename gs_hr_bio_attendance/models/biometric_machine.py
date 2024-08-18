@@ -483,7 +483,7 @@ class biometric_machine(models.Model):
 
                                 })
     #check ip connection with port
-    def _check_ip_connection(self, ip_address, port):
+    def check_ip_connection(self, ip_address, port):
         try:
             socket.create_connection((ip_address, port), timeout=10)
             return True
