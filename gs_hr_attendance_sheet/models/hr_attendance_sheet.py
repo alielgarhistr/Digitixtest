@@ -268,6 +268,8 @@ class AttendanceSheet(models.Model):
             if not policy_id:
                 raise ValidationError(_(
                     'Please add Attendance Policy to the %s `s contract ' % emp.name))
+            for shift in emp.contract_id.shift_schedule:
+                print(shift.start_date,shift.end_date,shift.hr_shift)
             print('from date ',from_date)
             all_dates = [(from_date + timedelta(days=x)) for x in
                          range((to_date - from_date).days + 1)]
@@ -280,20 +282,20 @@ class AttendanceSheet(models.Model):
                                             second=59)
                 day_str = str(day.weekday())
                 date = day.strftime('%Y-%m-%d')
+                
+                for shift in emp.contract_id.shift_schedule:
+                    # print('shif schedule is',shift.hr_shift)
+                    if day_start.date() >= shift.start_date and day_start.date() <= shift.end_date:
+                        calendar_id = shift.hr_shift
+                        # print('this if is true',day_start.date(),calendar_id)
+                        break
+                
                 work_intervals = calendar_id.att_get_work_intervals_new(day_start,
                                                                     day_end, tz)
                 attendance_intervals = self.get_attendance_intervals(emp,
                                                                      day_start,
                                                                      day_end,
                                                                      tz)
-                for shift in emp.contract_id.shift_schedule:
-                    # print('shif schedule is',shift.hr_shift)
-                    if day_start.date() >= shift.start_date and day_start.date() <= shift.end_date :
-                        calendar_id = shift.hr_shift
-                        # print('this if is true',day_start.date(),calendar_id)
-                        break
-                    else:
-                        calendar_id = emp.contract_id.resource_calendar_id
 
                 leaves = self._get_emp_leave_intervals(emp, day_start, day_end)
                 public_holiday = self.get_public_holiday(date, emp)
