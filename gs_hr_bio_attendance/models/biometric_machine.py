@@ -483,7 +483,25 @@ class biometric_machine(models.Model):
 
                                 })
     #check ip connection with port
-    def check_ip_connection(self, ip_address, port):
+    def action_check_connection(self):
+        for machine in self:
+            # Pass the IP address and port from the machine record
+            if self._check_ip_connection(machine.ip_address, machine.port):
+                message = _('Connection to the biometric machine %s was successful.') % machine.name
+            else:
+                message = _('Failed to connect to the biometric machine %s.') % machine.name
+            
+            return {
+                'type': 'ir.actions.client',
+                'tag': 'display_notification',
+                'params': {
+                    'title': _('Connection Check'),
+                    'message': message,
+                    'sticky': False,
+                }
+            }
+
+    def _check_ip_connection(self, ip_address, port):
         try:
             socket.create_connection((ip_address, port), timeout=10)
             return True
