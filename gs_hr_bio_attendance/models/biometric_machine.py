@@ -482,6 +482,14 @@ class biometric_machine(models.Model):
                                     'state': 'fixin'
 
                                 })
+    #check ip connection with port
+    def _check_ip_connection(self, ip_address, port):
+        try:
+            socket.create_connection((ip_address, port), timeout=10)
+            return True
+        except (socket.timeout, socket.error) as e:
+            _logger.error(f'Error connecting to {ip_address}:{port} - {str(e)}')
+            return False
 
     def action_create_log(self, atts, machine_id):
         if not atts:
