@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data noupdate="1"> 
+        <record id="invoice_intgretion_values" model="invoice.integration.config">
+            <field name="name">Basic Authentication</field>
+            <field name="user_name">name</field>
+            <field name="password">password</field>
+        </record> 
+    </data>
+
+    <data>
+        <!-- explicit form view definition -->
+        <record id="invoice_integration_form" model="ir.ui.view">
+            <field name="name">invoice.integration.form</field>
+            <field name="model">invoice.integration.config</field>
+            <field name="arch" type="xml">
+                <form string="Config" create="false" delete="false">
+                <sheet>
+                    <group>
+                      <field name="name" readonly="True"/>
+                    </group>
+                    <group>
+                      <group>
+                        <field name="user_name" required="True"/>
+                      </group>
+                      <group>
+                        <field name="password" password="True" required="True"/>
+                      </group>
+                    </group>
+                </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- explicit list view definition -->
+        <record id="invoice_integration_list" model="ir.ui.view" >
+        <field name="name">invoice.integration.list</field>
+        <field name="model">invoice.integration.config</field>
+        <field name="arch" type="xml">
+            <tree create="false" delete="false">
+              <field name="name"/>
+            </tree>
+        </field>
+        </record>
+        
+        <!-- actions opening views on models -->
+        <record model="ir.actions.act_window" id="invoice_integration_action">
+            <field name="name">Odoo API</field>
+            <field name="res_model">invoice.integration.config</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+    </data>
+</odoo>

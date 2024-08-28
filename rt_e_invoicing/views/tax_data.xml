@@ -1,0 +1,309 @@
+<odoo>
+    <data noupdate="1">
+        <record id="T1" model="account.tax">
+            <field name="code">T1</field>
+            <field name="name">Value added tax - Taxable</field>
+            <field name="type_tax_use">none</field>
+            <field name="active">0</field>
+            <field name="amount">0</field>
+            <field name="country_id" ref="base.eg"/>
+        </record>
+        <record id="T2" model="account.tax">
+            <field name="code">T2</field>
+            <field name="name">Table tax (percentage) - Taxable</field>
+            <field name="type_tax_use">none</field>
+            <field name="active">0</field>
+            <field name="amount">0</field>
+            <field name="country_id" ref="base.eg"/>
+        </record>
+        <record id="T3" model="account.tax">
+            <field name="code">T3</field>
+            <field name="name">Table tax (Fixed Amount) - Taxable</field>
+            <field name="type_tax_use">none</field>
+            <field name="active">0</field>
+            <field name="amount">0</field>
+            <field name="country_id" ref="base.eg"/>
+        </record>
+        <record id="T4" model="account.tax">
+            <field name="code">T4</field>
+            <field name="name">Withholding tax (WHT) - Taxable</field>
+            <field name="type_tax_use">none</field>
+            <field name="active">0</field>
+            <field name="amount">0</field>
+            <field name="country_id" ref="base.eg"/>
+        </record>
+        <record id="T5" model="account.tax">
+            <field name="code">T5</field>
+            <field name="name">Stamping tax (percentage) - Taxable</field>
+            <field name="type_tax_use">none</field>
+            <field name="active">0</field>
+            <field name="amount">0</field>
+            <field name="country_id" ref="base.eg"/>
+        </record>
+        <record id="T6" model="account.tax">
+            <field name="code">T6</field>
+            <field name="name">Stamping Tax (amount) - Taxable</field>
+            <field name="type_tax_use">none</field>
+            <field name="active">0</field>
+            <field name="amount">0</field>
+            <field name="country_id" ref="base.eg"/>
+        </record>
+        <record id="T7" model="account.tax">
+            <field name="code">T7</field>
+            <field name="name">Entertainment tax - Taxable</field>
+            <field name="type_tax_use">none</field>
+            <field name="active">0</field>
+            <field name="amount">0</field>
+            <field name="country_id" ref="base.eg"/>
+        </record>
+        <record id="T8" model="account.tax">
+            <field name="code">T8</field>
+            <field name="name">Resource development fee - Taxable</field>
+            <field name="type_tax_use">none</field>
+            <field name="active">0</field>
+            <field name="amount">0</field>
+            <field name="country_id" ref="base.eg"/>
+        </record>
+        <record id="T9" model="account.tax">
+            <field name="code">T9</field>
+            <field name="name">Service charges - Taxable</field>
+            <field name="type_tax_use">none</field>
+            <field name="active">0</field>
+            <field name="amount">0</field>
+            <field name="country_id" ref="base.eg"/>
+        </record>
+        <record id="T10" model="account.tax">
+            <field name="code">T10</field>
+            <field name="name">Municipality Fees - Taxable</field>
+            <field name="type_tax_use">none</field>
+            <field name="active">0</field>
+            <field name="amount">0</field>
+            <field name="country_id" ref="base.eg"/>
+        </record>
+        <record id="T11" model="account.tax">
+            <field name="code">T11</field>
+            <field name="name">Medical insurance fee - Taxable</field>
+            <field name="type_tax_use">none</field>
+            <field name="active">0</field>
+            <field name="amount">0</field>
+            <field name="country_id" ref="base.eg"/>
+        </record>
+        <record id="T12" model="account.tax">
+            <field name="code">T12</field>
+            <field name="name">Other fees - Taxable</field>
+            <field name="type_tax_use">none</field>
+            <field name="active">0</field>
+            <field name="amount">0</field>
+            <field name="country_id" ref="base.eg"/>
+        </record>
+        <record id="T13" model="account.tax">
+            <field name="code">T13</field>
+            <field name="name">Stamping tax (percentage) - Non-Taxable</field>
+            <field name="type_tax_use">none</field>
+            <field name="active">0</field>
+            <field name="amount">0</field>
+            <field name="country_id" ref="base.eg"/>
+        </record>
+        <record id="T14" model="account.tax">
+            <field name="code">T14</field>
+            <field name="name">Stamping Tax (amount) - Non-Taxable</field>
+            <field name="type_tax_use">none</field>
+            <field name="active">0</field>
+            <field name="amount">0</field>
+            <field name="country_id" ref="base.eg"/>
+        </record>
+        <record id="T15" model="account.tax">
+            <field name="code">T15</field>
+            <field name="name">Entertainment tax - Non-Taxable</field>
+            <field name="type_tax_use">none</field>
+            <field name="active">0</field>
+            <field name="amount">0</field>
+            <field name="country_id" ref="base.eg"/>
+        </record>
+        <record id="T16" model="account.tax">
+            <field name="code">T16</field>
+            <field name="name">Resource development fee - Non-Taxable</field>
+            <field name="type_tax_use">none</field>
+            <field name="active">0</field>
+            <field name="amount">0</field>
+            <field name="country_id" ref="base.eg"/>
+        </record>
+        <record id="T17" model="account.tax">
+            <field name="code">T17</field>
+            <field name="name">Table tax (percentage) - Non-Taxable</field>
+            <field name="type_tax_use">none</field>
+            <field name="active">0</field>
+            <field name="amount">0</field>
+            <field name="country_id" ref="base.eg"/>
+        </record>
+        <record id="T18" model="account.tax">
+            <field name="code">T18</field>
+            <field name="name">Municipality Fees - Non-Taxable</field>
+            <field name="type_tax_use">none</field>
+            <field name="active">0</field>
+            <field name="amount">0</field>
+            <field name="country_id" ref="base.eg"/>
+        </record>
+        <record id="T19" model="account.tax">
+            <field name="code">T19</field>
+            <field name="name">Medical insurance fee - Non-Taxable</field>
+            <field name="type_tax_use">none</field>
+            <field name="active">0</field>
+            <field name="amount">0</field>
+            <field name="country_id" ref="base.eg"/>
+        </record>
+        <record id="T20" model="account.tax">
+            <field name="code">T20</field>
+            <field name="name">Other fees - Non-Taxable</field>
+            <field name="type_tax_use">none</field>
+            <field name="active">0</field>
+            <field name="amount">0</field>
+            <field name="country_id" ref="base.eg"/>
+        </record>
+        <!-- Sub Types -->
+        <record id="V001" model="account.tax">
+            <field name="code">V001</field>
+            <field name="parent_code">T1</field>
+            <field name="name">Export</field>
+            <field name="type_tax_use">none</field>
+            <field name="active">0</field>
+            <field name="amount">0</field>
+            <field name="country_id" ref="base.eg"/>
+        </record>
+        <record id="V002" model="account.tax">
+            <field name="code">V002</field>
+            <field name="parent_code">T1</field>
+            <field name="name">Export to free areas and other areas</field>
+            <field name="type_tax_use">none</field>
+            <field name="active">0</field>
+            <field name="amount">0</field>
+            <field name="country_id" ref="base.eg"/>
+        </record>
+        <record id="V003" model="account.tax">
+            <field name="code">V003</field>
+            <field name="parent_code">T1</field>
+            <field name="name">Exempted good or service</field>
+            <field name="type_tax_use">none</field>
+            <field name="active">0</field>
+            <field name="amount">0</field>
+            <field name="country_id" ref="base.eg"/>
+        </record>
+        <record id="V004" model="account.tax">
+            <field name="code">V004</field>
+            <field name="parent_code">T1</field>
+            <field name="name">A non-taxable good or service</field>
+            <field name="type_tax_use">none</field>
+            <field name="active">0</field>
+            <field name="amount">0</field>
+            <field name="country_id" ref="base.eg"/>
+        </record>
+        <record id="V005" model="account.tax">
+            <field name="code">V005</field>
+            <field name="parent_code">T1</field>
+            <field name="name">Exemptions for diplomats, consulates and embassies</field>
+            <field name="type_tax_use">none</field>
+            <field name="active">0</field>
+            <field name="amount">0</field>
+            <field name="country_id" ref="base.eg"/>
+        </record>
+        <record id="V006" model="account.tax">
+            <field name="code">V006</field>
+            <field name="parent_code">T1</field>
+            <field name="name">Defence and National security Exemptions</field>
+            <field name="type_tax_use">none</field>
+            <field name="active">0</field>
+            <field name="amount">0</field>
+            <field name="country_id" ref="base.eg"/>
+        </record>
+        <record id="V007" model="account.tax">
+            <field name="code">V007</field>
+            <field name="parent_code">T1</field>
+            <field name="name">Agreements exemptions</field>
+            <field name="type_tax_use">none</field>
+            <field name="active">0</field>
+            <field name="amount">0</field>
+            <field name="country_id" ref="base.eg"/>
+        </record>
+        <record id="V008" model="account.tax">
+            <field name="code">V008</field>
+            <field name="parent_code">T1</field>
+            <field name="name">Special Exemptios and other reasons</field>
+            <field name="type_tax_use">none</field>
+            <field name="active">0</field>
+            <field name="amount">0</field>
+            <field name="country_id" ref="base.eg"/>
+        </record>
+        <record id="W001" model="account.tax">
+            <field name="code">W001</field>
+            <field name="parent_code">T4</field>
+            <field name="name">المقاولات والتوريدات</field>
+            <field name="type_tax_use">none</field>
+            <field name="active">0</field>
+            <field name="amount">0</field>
+            <field name="country_id" ref="base.eg"/>
+        </record>
+        <record id="W002" model="account.tax">
+            <field name="code">W002</field>
+            <field name="parent_code">T4</field>
+            <field name="name">الخدمات</field>
+            <field name="type_tax_use">none</field>
+            <field name="active">0</field>
+            <field name="amount">0</field>
+            <field name="country_id" ref="base.eg"/>
+        </record>
+        <record id="W003" model="account.tax">
+            <field name="code">W003</field>
+            <field name="parent_code">T4</field>
+            <field name="name">مهن حره</field>
+            <field name="type_tax_use">none</field>
+            <field name="active">0</field>
+            <field name="amount">0</field>
+            <field name="country_id" ref="base.eg"/>
+        </record>
+        <record id="W004" model="account.tax">
+            <field name="code">W004</field>
+            <field name="parent_code">T4</field>
+            <field name="name">الوكاله بالعموله والسمسره</field>
+            <field name="type_tax_use">none</field>
+            <field name="active">0</field>
+            <field name="amount">0</field>
+            <field name="country_id" ref="base.eg"/>
+        </record>
+        <record id="W005" model="account.tax">
+            <field name="code">W005</field>
+            <field name="parent_code">T4</field>
+            <field name="name">الخصومات والمنح والعمولات</field>
+            <field name="type_tax_use">none</field>
+            <field name="active">0</field>
+            <field name="amount">0</field>
+            <field name="country_id" ref="base.eg"/>
+        </record>
+        <record id="W006" model="account.tax">
+            <field name="code">W006</field>
+            <field name="parent_code">T4</field>
+            <field name="name">مسانده دعم الصادرات التي يمنحها ص.تنميه الصادرات للمصدر</field>
+            <field name="type_tax_use">none</field>
+            <field name="active">0</field>
+            <field name="amount">0</field>
+            <field name="country_id" ref="base.eg"/>
+        </record>
+        <record id="W007" model="account.tax">
+            <field name="code">W007</field>
+            <field name="parent_code">T4</field>
+            <field name="name">إعفاء</field>
+            <field name="type_tax_use">none</field>
+            <field name="active">0</field>
+            <field name="amount">0</field>
+            <field name="country_id" ref="base.eg"/>
+        </record>
+        <record id="W008" model="account.tax">
+            <field name="code">W008</field>
+            <field name="parent_code">T4</field>
+            <field name="name">دفعات مقدمة</field>
+            <field name="type_tax_use">none</field>
+            <field name="active">0</field>
+            <field name="amount">0</field>
+            <field name="country_id" ref="base.eg"/>
+        </record>
+    </data>
+</odoo>

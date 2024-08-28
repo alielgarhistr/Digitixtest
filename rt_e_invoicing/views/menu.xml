@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <menuitem id="e_invoice_menu_root" 
+        name="E-Invoicing" 
+        web_icon="rt_e_invoicing,static/description/icon.png" 
+        groups="base.group_system"/>
+
+    <menuitem id="e_invoice_api_config" 
+        name="APIs" 
+        parent="e_invoice_menu_root"
+        action="e_invoice_api_action"
+        sequence="1"/>
+
+    <menuitem id="e_invoice_config" 
+        name="Configuration" 
+        parent="e_invoice_menu_root"
+        action="e_invoice_config_action"/>
+
+    <menuitem id="invoice_odoo_api_config" 
+            name="Odoo API" 
+            parent="e_invoice_menu_root"
+            action="invoice_integration_action"
+            sequence="2"/>
+</odoo>

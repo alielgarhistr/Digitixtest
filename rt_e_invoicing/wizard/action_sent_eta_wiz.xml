@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_sent_invoice_eta" model="ir.ui.view">
+            <field name="name">sent.invoice.eta.view</field>
+            <field name="model">sent.invoice.eta.wiz</field>
+            <field name="arch" type="xml">
+                <form string="Sent To ETA">
+                    <footer>
+                        <button string="Sign and Sent TO ETA" name="sent_invoice_eta" type="object" class="oe_highlight"/>
+                        <button string="Cancel" class="btn btn-secondary" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_sent_invoice_eta" model="ir.actions.act_window">
+            <field name="name">Sent To ETA</field>
+            <field name="res_model">sent.invoice.eta.wiz</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="view_sent_invoice_eta"/>
+            <field name="target">new</field>
+            <field name="binding_model_id" ref="account.model_account_move"/>
+            <field name="binding_view_types">list,form</field>
+        </record>
+    </data>
+</odoo>

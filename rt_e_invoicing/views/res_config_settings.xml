@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>  
+        <record id="update_uom" model="res.config.settings">
+            <field name="group_uom" eval="1"/>
+        </record>
+
+        <function model="res.config.settings" name="execute">
+            <value eval="[ref('update_uom')]"/>
+            <value eval="{}"/>
+        </function>
+    </data>
+</odoo>

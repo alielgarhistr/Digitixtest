@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+  <!-- Allow updating on noupdate=True records -->
+  <function name="write" model="ir.model.data">
+    <function name="search" model="ir.model.data">
+      <value eval="[('module', '=', 'uom')]" />
+    </function>
+    <value eval="{'noupdate': False}" />
+  </function>
+  
+    <record id="uom.product_uom_unit" model="uom.uom">
+        <field name="uom_code">EA</field>
+    </record>
+    <record id="uom.product_uom_dozen" model="uom.uom">
+        <field name="uom_code">NONA</field>
+    </record>
+    <record id="uom.product_uom_kgm" model="uom.uom">
+        <field name="uom_code">KGM</field>
+    </record>
+    <record id="uom.product_uom_gram" model="uom.uom">
+        <field name="uom_code">GRM</field>
+    </record>
+    <record id="uom.product_uom_hour" model="uom.uom">
+        <field name="uom_code">HUR</field>
+    </record>
+    <record id="uom.product_uom_day" model="uom.uom">
+        <field name="uom_code">DAY</field>
+    </record>
+    <record id="uom.product_uom_ton" model="uom.uom">
+        <field name="uom_code">TNE</field>
+    </record>
+    <record id="uom.product_uom_meter" model="uom.uom">
+        <field name="uom_code">M</field>
+    </record>
+    <record id="uom.product_uom_km" model="uom.uom">
+        <field name="uom_code">KMT</field>
+    </record>
+    <record id="uom.product_uom_cm" model="uom.uom">
+        <field name="uom_code">CMT</field>
+    </record>
+    <record id="uom.product_uom_litre" model="uom.uom">
+        <field name="uom_code">LTR</field>
+    </record>
+
+    <!--Americanization of units of measure-->
+    <record id="uom.product_uom_lb" model="uom.uom">
+        <field name="uom_code">NONA</field>
+    </record>
+    <record id="uom.product_uom_oz" model="uom.uom">
+      <field name="uom_code">ONZ</field>
+    </record>
+    <record id="uom.product_uom_inch" model="uom.uom">
+        <field name="uom_code">INH</field>
+    </record>
+    <record id="uom.product_uom_foot" model="uom.uom">
+        <field name="uom_code">FOT</field>
+    </record>
+    <record id="uom.product_uom_mile" model="uom.uom">
+      <field name="uom_code">SMI</field>
+    </record>
+    <record id="uom.product_uom_floz" model="uom.uom">
+      <field name="uom_code">NONA</field>
+    </record>
+    <record id="uom.product_uom_qt" model="uom.uom">
+      <field name="uom_code">NONA</field>
+    </record>
+    <record id="uom.product_uom_gal" model="uom.uom">
+      <field name="uom_code">GLL</field>
+    </record>
+
+  <!-- Revoke noupdate change -->
+  <function name="write" model="ir.model.data">
+    <function name="search" model="ir.model.data">
+      <value eval="[('module', '=', 'uom')]" />
+    </function>
+    <value eval="{'noupdate': True}" />
+  </function>
+</odoo>
