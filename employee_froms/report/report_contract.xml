@@ -1,228 +1,320 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
 <data>
+
+<!-- document number 6 -->
 <template id="report_form6_document">
-     <t t-call="web.html_container">
-        <t t-foreach="docs" t-as="o">
+         <t t-call="web.html_container">
             <t t-call="web.basic_layout">
-
-<style>
-    body {
-        font-family: 'Arfont';
-        font-size: 22px;
-        direction: rtl;
-        text-align: right; 
-    }
-    .container {
-        margin-top: 20px;
-    }
-    .form-title {
-        text-align: center;
-        font-weight: bold;
-        margin: 20px 0;
-        text-decoration: underline;
-    }
-    .table th, .table td {
-        vertical-align: middle;
-        text-align: center;
-    }
-    .signature-table td {
-        vertical-align: bottom;
-    }
-    .section-title {
-        text-align: center;
-        text-decoration: underline;
-        margin-top: 20px;
-        margin-bottom: 10px;
-    }
-    .borderless td, .borderless th {
-        border: none;
-    }
-    span {
-    padding-left: 10px !important;
-    }
-
-    .custom-tbody td {
-        text-align: right;
-        
-    }
-    
-    .textMargin{
-        margin-right: 10%;
-        margin-left: 0px;
-        }
-    .threetextMargin{
-       margin-right: 20%;
-        margin-left: 0px;
-    }
-</style>       
-
-
-<div class="page">
-
-    <div class="container">
-        <table class="table borderless">
+                <style>
+                    body {
+                        font-family: Arial, sans-serif;
+                        direction: rtl;
+                        text-align: right;
+                        color: black;
+                        font-size: 16pt;
+                    }
+                    header{
+                       font-size: 14pt;
+                       font-weight:bold;
+                    }
+                    .title {
+                        font-weight: bold;
+                    }
+                    .section {
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        margin: 20px 0;
+                    }
+                    .section-title {
+                        position: relative;
+                        padding: 0 10px;
+                        font-weight: bold;
+                        line-height: 1.5;
+                        color:black !important;
+                    }
+                    .section-title::before,
+                    .section-title::after {
+                        content: '';
+                        position: absolute;
+                        top: 50%;
+                        width: 100px;
+                        height: 1px;
+                        background-color: black;
+                    }
+                    .section-title::before {
+                        right: 100%;
+                        margin-right: 5px;
+                    }
+                    .section-title::after {
+                        left: 100%;
+                        margin-left: 5px;
+                    }
+                    .rounded-border {
+                        padding: 0 10px;
+                        border: 1px solid black;
+                        border-radius: 5px;
+                        text-align: center;
+                        width: 50%;
+                    }
+                    .last-table th, .last-table td {
+                        border: 1px solid black;
+                    }
+                    .sign {
+                        display: flex;
+                        align-items: flex-end;
+                        flex-direction: column;
+                    }
+                    .signature {
+                        display: flex;
+                        align-items: center;
+                        justify-content: space-between;
+                    }
+                    .container {
+                        margin-bottom: 30px;
+                    }
+                    .container h2 {
+                        font-weight: bold;
+                        text-decoration: underline;
+                        color: black;
+                        padding-bottom: 20px;
+                    }
+                    .title, .address {
+                        color: black;
+                    }
+                    .address {
+                        text-align: center;
+                        font-weight: bold;
+                        color:black !important;
+                    }
+                    .o_report_layout_boxed table{
+                    border:none !important;
+                    }
+                    .o_report_layout_boxed table tbody tr td{
+                    border-right:none !important;
+                    }
+                    
+                </style>
+                <header>
+<div class="container">
+   <div class="row d-flex justify-content-around align-items-center text-black">
+      <div class="col-md-4 d-flex justify-content-center align-items-center">
+         <div class="header-title">
+            <p>الهيئة القومية للتامينات الاجتماعية</p>
+            <p class="my-4">منطقة :   </p>
+            <p>مكتب :    </p>
+         </div>
+      </div>
+      <div class="col-md-4 d-flex justify-content-center align-items-center">
+         <img src="https://www.nosi.gov.eg/_layouts/15/NOSI.Portal.Branding/images/logo.png" style="width: 84px; height: 77.7974px;" class="img"/>
+      </div>
+      <div class="col-md-4 d-flex justify-content-center align-items-center">
+         <p>
+            نموذج رقم (6) قرار وزاري رقم(554) لسنة 2007
+         </p>
+      </div>
+   </div>
+</div>
+</header>
+<hr/>
+<t t-foreach="docs" t-as="doc">
+<div class="container">
+    <h2 class="address">إخطار بانتهاء اشتراك مؤمن عليه</h2>
+    <div>
+        <table class="w-100">
             <tbody>
-                <tr>
-                    <td style="width: 33.3333%;"><strong>الهيئة القومية للتامينات الاجتماعية</strong></td>
-                    <td style="width: 10%;"/>
-                    <td style="width: 33.3333%;"><strong>نموذج رقم (6) قرار وزاري رقم(554) لسنة 2007</strong></td>
-                </tr>
-                <tr>
-                    <td><strong>صندوق العاملين بـ</strong></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td><strong>منطقة:</strong></td>
-                    <td></td>
-                    <td><strong>وحدة:</strong></td>
-                </tr>
-                <tr>
-                    <td><strong>مكتب:</strong></td>
-                    <td></td>
-                    <td></td>
+                <tr class="row">
+                <td class="col-md-6">
+                    <span class="title">رقم المنشأة:</span>
+                    <span t-field="doc.employee_id.user_partner_id.name"/>
+                </td>
+                <td class="col-md-6">
+                    <span class="title">مسمى شركة:</span>
+                    <span t-field="doc.employee_id.user_partner_id.owner_name"/>
+                </td>
                 </tr>
             </tbody>
         </table>
-
-        <p class="form-title">اخطار بانتهاء اشتراك مؤمن عليه</p>
-        
-
-
-<table style="width: 100%; border-collapse: collapse; margin: 0px auto;">
-    <tbody>
-        <tr>
-            <td style="width: 50%; text-align: center;" class="fr-cell-handler">
-                رقم المنشأه: <t t-esc="o.employee_id.user_partner_id.phone"/>
-            </td>
-            <td style="width: 50%; text-align: center;" class="fr-cell-fixed">
-                مسمي: <t t-esc="o.employee_id.user_partner_id.name"/>
-            </td>
-        </tr>
-    </tbody>
-</table>
-
-
-<p class="section-title">بيانات المؤمن عليه</p>
-
-<table style="width: 100%; border-collapse: collapse; margin: 0px auto;">
-    <tbody>
-        <tr>
-            <td style="width: 25%; text-align: center;" class="fr-cell-handler">
-                <span>الرقم التاميني: </span>
-                <t t-esc="o.sin_no "/>
-            </td>
-            <td style="width: 25%; text-align: center;" class="fr-cell-handler">
-                <span>الرقم القومي: </span>
-                <t t-esc="o.employee_id.identification_id"/> <!-- Assuming `o.national_id` is the correct field -->
-            </td>
-            <td style="width: 25%; text-align: center;" class="fr-cell-handler">
-                <span>الاسم: </span>
-                <t t-esc="o.employee_id.name"/>
-            </td>
-        </tr>
-    </tbody>
-</table>
-
-<table style="width: 100%; border-collapse: collapse; margin: 0px auto;">
-    <tbody>
-        <tr>
-            <td style="width: 50%; text-align: center;" class="fr-cell-handler">
-                <span>تاريخ نهاية الاشتراك: </span>
-                <t t-esc="o.sin_end_date"/> 
-            </td>
-            <td style="width: 50%; text-align: center;" class="fr-cell-handler">
-                <span>سبب نهاية الاشتراك: </span>
-                <!-- <t t-esc="o.identification_id"/>  -->
-            </td>
-        </tr>
-    </tbody>
-</table>
-        <p class="section-title">بيانات محل اقامة المؤمن عليه</p>
-        <p class="textMargin">عقار رقم: <t t-esc="o.employee_id.address_home_id.street"/> شارع /حارة: <t t-esc="o.employee_id.address_home_id.street2"/></p>
-        <p class="threetextMargin">شياخة/قرية: <t t-esc="o.employee_id.address_home_id.state_id.name"/> قسم/ مركز: <t t-esc="o.employee_id.address_home_id.city"/> محافظة: <t t-esc="o.employee_id.address_home_id.city"/></p>
-
-        <p class="section-title">اقرار المؤمن عليه و المدير المسئول</p>
-
-<table class="table borderless" style="border-collapse: collapse; height: 10px; padding: 10px;">
-    <tbody class="custom-tbody">
-        <tr>
-            <td colspan="2" style="padding: 10px;">اقر بان البيانات بعاليه صحيحة و ان المؤمن عليه تسلم صورة من هذا الاخطار</td>
-        </tr>
-        <tr>
-            <td style="width: 50%; text-align: center; padding: 10px;">توقيع المؤمن عليه:</td>
-            <td style="width: 50%; text-align: center; padding: 10px;">توقيع المدير المسئول:</td>
-        </tr>
-        <tr>
-            <td style="width: 50%; text-align: center; padding: 10px;" colspan="2">تم مطابقة التوقيع بمعرفتي:</td>
-        </tr>
-    </tbody>
-</table>
-
-
-        <p class="section-title">اقرار المدير المسئول في حالة وجود نزاع</p>
-
-<table style="width: 100%; border-collapse: collapse; padding: 20px;">
-    <tbody>
-        <tr>
-            <td style="width: 50%; text-align: right; padding: 20px;">توقيع المؤمن علية :</td>
-            <td style="width: 50%; text-align: right; padding: 20px;">توقيع المدير المسؤول</td>
-        </tr>
-    </tbody>
-</table>
-<table style="width: 100%; text-align: center; padding: 20px; border-collapse: collapse;">
-    <tbody>
-        <tr>
-            <td style="width: 50%; text-align: center; padding: 20px;">مطابقة التوقيع بمعرفتي:</td>
-        </tr>
-    </tbody>
-</table>
-        
-        <table class="table table-bordered">
-            <thead class="thead-light">
+    </div>
+    <!-- Insured's employee data -->
+    <div class="info-empl">
+        <table class="w-100">
+            <thead>
+                <div class="section">
+                <div class="section-title rounded-border">بيانات المؤمن عليه</div>
+                </div>
+            </thead>
+            <tbody>
+                <tr class="row">
+                <td class="col-md-12 title">الرقم التأميني:
+                    <span t-foreach="str(doc.sin_no)[::-1]" t-as="digit">
+                    <span t-esc="digit" style="display: inline-block; width: 25px; height: 25px; border: 1px solid #000; text-align: center; margin-right: 2px;"/>
+                    </span>
+                </td>
+                </tr>
+                <tr class="row">
+                <td class="col-md-12 title">الرقم القومي:
+                    <span t-foreach="str(doc.employee_id.identification_id)[::-1]" t-as="digit">
+                    <span t-esc="digit" style="display: inline-block; width: 25px; height: 25px; border: 1px solid #000; text-align: center; margin-right: 2px;"/>
+                    </span>
+                </td>
+                </tr>
+                <tr class="row">
+                <td class="col-md-12">
+                    <span class="title">الاســــــــم:</span>
+                    <span class="title" t-field="doc.employee_id.name"/>
+                </td>
+                </tr>
+                <tr class="row">
+                <td class="col-md-6 title">
+                    تاريخ انتهاء الاشتراك:
+                    <span t-foreach="str(doc.sin_end_date)[::-1]" t-as="digit">
+                    <span t-esc="digit" style="display: inline-block; width: 25px; height: 25px; border: 1px solid #000; text-align: center; margin-right: 2px;"/>
+                    </span>
+                </td>
+                <td class="col-md-6 title">ســبب انتهاء الاشتراك: ____</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <!-- Insured's employee address data -->
+    <div class="info_address">
+        <table class="w-100">
+            <thead>
+                <div class="section">
+                <div class="section-title rounded-border">بيانات محل إقامة المؤمن عليه</div>
+                </div>
+            </thead>
+            <tbody>
+                <tr class="row">
+                <td class="col-md-6">
+                    <span class="title">عقار رقم:</span>
+                    <span t-field="doc.employee_id.address_home_id.street"/>
+                </td>
+                <td class="col-md-6">
+                    <span class="title">شارع/حارة:</span>
+                    <span t-field="doc.employee_id.address_home_id.street"/>
+                </td>
+                </tr>
+                <tr class="row">
+                <td class="col-md-4">
+                    <span class="title">قسم/مركز:</span>
+                    <span t-field="doc.employee_id.address_home_id.street"/>
+                </td>
+                <td class="col-md-4">
+                    <span class="title">شياخة/قرية:</span>
+                    <span t-field="doc.employee_id.address_home_id.street"/>
+                </td>
+                <td class="col-md-4">
+                    <span class="title">محافظة:</span>
+                    <span t-field="doc.employee_id.address_home_id.street"/>
+                </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <!-- Insured's employee declaration -->
+    <div class="ins_empl">
+        <table class="w-100">
+            <thead>
+                <div class="section">
+                <div class="section-title rounded-border">إقــرار المؤمن عليه والمدير المسئول</div>
+                </div>
+            </thead>
+            <tbody>
                 <tr>
-                    <th>البيان</th>
-                    <th>مستلم الاخطار</th>
-                    <th>المراجع</th>
-                    <th>مسجل آلي</th>
-                    <th>مراجع آلي</th>
+                <td class="title lh-base">
+                    <p>
+                        أقــــر أن الـبـيـانـات بـعـالـيـه صـحـيـحـة وأن الـمـؤمـن عـلـيـه تـسـلـم صـورة مـن هـذا الإخـطـار.
+                    </p>
+                </td>
+                </tr>
+                <tr class="row">
+                <td class="col-md-6 title">توقيع المؤمن عليه: _______ / _ / __20</td>
+                <td class="col-md-6 title">توقيع المدير المسئول: _______ / _ / __20</td>
+                </tr>
+                <tr class="row">
+                <td class="col-md-12 title">تم مطابقة التوقيع بمعرفتي: _______</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <!-- Manager's declaration in case of dispute -->
+    <div class="ins-mgr">
+        <table class="w-100">
+            <thead>
+                <div class="section">
+                <div class="section-title rounded-border">إقـــرار الـمـديـر الـمـسـئـول فـي حـالـة وجـود نـزاع</div>
+                </div>
+            </thead>
+            <tbody>
+                <tr>
+                <td class="title lh-base">
+                    <p>
+                        أقــر أن البيانات بعاليه صحيحة وإنني أرسلت صورة من هذا الإخطار إلى المؤمن عليه بخطاب موصى عليه بعلم وصول برقم-___________
+                        بتاريخ __ / _ / __ 20 .
+                    </p>
+                </td>
+                </tr>
+                <tr class="title">
+                <td style="text-align: left;">
+                    <span style="padding-left: 10px; display: inline-block; width: 80px; height: 50px; line-height: 50px; text-align: center; border-radius: 50%; border: 1px solid black; font-size: 13px;">
+                    خاتم الجهة
+                    </span>
+                    <span style="padding-right: 30px;">
+                    توقيع المدير المسئول: _____ / _ / __20
+                    </span>
+                </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <hr class="text-black"/>
+    <!-- Last table -->
+    <div class="las_table">
+        <table class="last-table w-100">
+            <thead>
+                <tr>
+                <th class="text-center">البيان</th>
+                <th class="text-center">مستلم الإخطار</th>
+                <th class="text-center">المراجع</th>
+                <th class="text-center">مسجل آلي</th>
+                <th class="text-center">مراجع آلي</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
-                    <td>الاسم</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
+                <td class="row-title">الاسم</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
                 </tr>
                 <tr>
-                    <td>التوقيع</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
+                <td class="row-title">التوقيع</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
                 </tr>
                 <tr>
-                    <td>التاريخ</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
+                <td class="row-title">التاريخ</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
                 </tr>
             </tbody>
         </table>
-
-        <p class="textMargin">ملحوظة: يلزم التأكد بالتوقيع كل من العامل و صاحب العمل علي الإقرار الموضح خلف الاستمارة</p>
-        <!-- <p class="textMargin">(انظر خلفه)</p> -->
     </div>
-
-
+    <hr class="text-black"/>
+    <p style="font-weight: bold; text-dark">ملحوظــة :- يلزم التأكد من توقيع كل من العامل وصاحب العمل على الإقرار الموضح خلف الاستمارة . ( انظــر خلفه )</p>
 </div>
-                    </t>
+                    
                 </t>
             </t>
+        </t>
 </template>
 
 
@@ -243,213 +335,2439 @@
 </template>
 
 
+<!-- document number 2 -->
 <template id="report_form2_document" >
- <t t-foreach="docs" t-as="o">
-    <t t-call="web.basic_layout">
-<html lang="ar"> 
-        <style>
-            body {
+        <t t-call="web.html_container">
+        <t t-set="doc_len" t-value="len(docs) // 6"/>
+        <t t-set="increment_6" t-value="0"/>
+        <t t-foreach="docs[0:doc_len]" t-as="o">
+            <t t-call="web.basic_layout">
+<style type="text/css">
+  
+              body {
                 font-family: 'Arfont';
                 font-size: 22px;
                 direction: rtl;
                 text-align: center;
             }
-             td {
-            padding: 10px;
-                }
+    .awlist1 {
+        list-style: none;
+        counter-reset: awlistcounter3_0
+    }
 
-            .form-title {
-                text-align: center;
-                font-weight: bold;
-                margin: 20px 0;
-            }
-            .table th, .table td {
-                vertical-align: middle;
-                text-align: center;
-            }
-            .signature-table td {
-                vertical-align: bottom;
-            }
-            .textMargin{
-                    margin-right: 10%;
-                    margin-left: 0px;
-                }
-                .threetextMargin{
-                        margin-right: 20%;
-                        margin-left: 0px;
-                    }
-                .fourtextMargin{
-                        margin-right: 40%;
-                        margin-left: 0px;
-                    }
-        </style>
-        <body>
-            <div class="">
-                <table class="table">
-                    <tbody>
-                        <tr>
-                            <td style="width: 33.3333%;">الهيئة القومية للتامين الاجتماعي</td>
-                            <td style="width: 33.3333%; " rowspan="2">
-                                <img src="https://myfiles.space/user_files/215502_d41903e41bcafa3f/215502_custom_files/img1715755995.png" style="width: 64px; height: 57.7974px;" alt="Logo"/>
-                            </td>
-                            <td style="width: 33.3333%;">نموذج رقم(2)</td>
-                        </tr>
-                        <tr>
-                            <td>مكتب</td>
-                            <td>رقم المنشأة</td>
-                        </tr>
-                    </tbody>
-                </table>
-                <p class="form-title">طلب اشتراك منشأة</p>
-                <p class="form-title">او اخطار تعديل بيانات المؤمن عليهم و اجورهم في <t t-esc="context_timestamp(datetime.datetime.today()).strftime('%Y-%m-%d')"/></p>
+    .awlist1>li:before {
+        content: counter(awlistcounter3_0) ')';
+        counter-increment: awlistcounter3_0
+    }
 
+    .awlist2 {
+        list-style: none;
+        counter-reset: awlistcounter3_0 2
+    }
 
-          <table style="width: 100%;  padding-bottom: 20px;">
-              <tbody>
-                  <tr>
-                      <td style="width: 25%; text-align: center;">
-                          <div style="text-align: center;">
-                              <span>إسم المنشأة:</span>
-                              <t t-esc="o.employee_id.user_partner_id.name"/>
-                          </div>
-                      </td>
-                      <td style="width: 25%; text-align: center;">
-                          <div style="text-align: center;">
-                              <span>المالك:</span>
-                              <t t-esc="o.employee_id"/>
-                          </div>
-                      </td>
-                      <td style="width: 25%; text-align: center;">
-                          <div style="text-align: center;">
-                              <span>المدير المسؤول:</span>
-                              <span t-field="o.employee_id.parent_id"/>
-                    
-                          </div>
-                      </td>
-                      <td style="width: 25%; text-align: center;">
-                          <div style="text-align: center;">
-                              <span>الشكل القانوني للمؤسسة:</span>
-                              <!-- <t t-esc="o.employee_id"/> -->
-                          </div>
-                      </td>
-                  </tr>
-              </tbody>
-          </table>
-
-                <table style="width: 100%;" class="mb-2">
-                    <tbody>
-                        <tr>
-                            <td style="width: 33.3333%; text-align: center;">
-                                <div style="text-align: center;">عنوان المنشآة : <t t-esc="o.employee_id.user_partner_id.state_id.name"/></div>
-                            </td>
-                            <td style="width: 33.3333%;">
-                                <div style="text-align: center;">رقم العقار : <t t-esc="o.employee_id.user_partner_id.street2"/></div>
-                            </td>
-                            <td style="width: 33.3333%;">
-                                <div style="text-align: center;">أسم الشارع : <t t-esc="o.employee_id.user_partner_id.street"/></div>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>                
-
-    <table style="width: 100%;" class="mb-2">
-        <tbody>
-            <tr>
-                <td style="width: 33.3333%; text-align: center;">
-                    <div style="text-align: center;">الشياخة/قرية: <t t-esc="o.employee_id.address_home_id.state_id.name"/></div>
-                </td>
-                <td style="width: 33.3333%;">
-                    <div style="text-align: center;">القسم/مركز: <t t-esc="o.employee_id.address_home_id.city"/></div>
-                </td>
-                <td style="width: 33.3333%;">
-                    <div style="text-align: center;">المحافظة: <t t-esc="o.employee_id.address_home_id.city"/></div>
-                </td>
+    .awlist2>li:before {
+        content: counter(awlistcounter3_0) ')';
+        counter-increment: awlistcounter3_0
+    }
+</style>
+<!-- document number 2 -->
+<div dir="rtl" class="page">
+<!-- Header  -->
+   <div dir="rtl" style="text-align:center;">
+      <table cellspacing="0" cellpadding="0" style="width:90.58%; margin-right:auto; margin-left:auto; border-collapse:collapse;">
+         <tbody>
+            <tr style="height:20.85pt;">
+               <td rowspan="2" style="width:38.48%; padding-right:5.4pt; padding-left:5.4pt; vertical-align:top;">
+                  <p dir="rtl" style="margin-top:0pt; margin-right:18.05pt; margin-bottom:0pt; font-size:9pt;"><span style="font-family:'PT Bold Heading';">الهيئة القومية للتأمين الاجتماعي</span></p>
+                  <p dir="rtl" style="margin-top:0pt; margin-right:18.05pt; margin-bottom:0pt; font-size:9pt;">
+                     <span style="font-family:'PT Bold Heading';">
+                        منطقة<![CDATA[&nbsp;]]>
+                     </span>
+                     <span style="font-family:'Traditional Arabic';">...................................</span>
+                  </p>
+                  <p dir="rtl" style="margin-top:0pt; margin-right:18.05pt; margin-bottom:0pt; font-size:9pt;"><span style="font-family:'PT Bold Heading';">مكتب</span><span style="font-family:'Traditional Arabic';">....................................</span></p>
+               </td>
+               <td rowspan="2" style="width:30.58%; padding-right:5.4pt; padding-left:5.4pt; vertical-align:top;">
+                  <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; text-align:left; font-size:11pt;">
+                <span style="height:0pt; text-align:right; display:block; position:absolute; z-index:-1;">
+                    <img src="https://www.nosi.gov.eg/_layouts/15/NOSI.Portal.Branding/images/logo.png" style="width: 84px; height: 77.7974px;" alt="Logo"/>
+                </span>
+                     <span style="font-family:Calibri;">
+                        <![CDATA[&nbsp;]]>
+                     </span>
+                  </p>
+                  <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; text-align:left; font-size:11pt;">
+                     <span style="font-family:Calibri;">
+                        <![CDATA[&nbsp;]]>
+                     </span>
+                  </p>
+               </td>
+               <td style="width:30.94%; padding-right:5.4pt; padding-left:5.4pt; vertical-align:middle;">
+                  <div style="width:100%; height:20.85pt; display:inline-block; overflow:visible;">
+                     <p dir="rtl" style="margin-top:0pt; margin-bottom:6pt; text-align:center; font-size:11pt;">
+                        <span style="height:0pt; text-align:right; display:block; position:absolute; z-index:3;"><img src="/employee_froms/static/src/imgs/doc2img2.png" width="321" height="45" alt="" style="margin: 0 auto 0 0; display: block; "/></span>
+                        <span style="font-family:Calibri;">
+                           <![CDATA[&nbsp;]]>
+                        </span>
+                     </p>
+                     <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; font-size:10pt;"><strong><span style="font-family:'Mudir MT'; font-size:12pt;">رقــم المنشأة</span></strong></p>
+                  </div>
+               </td>
             </tr>
-        </tbody>
-    </table>
+            <tr style="height:14.8pt;">
+               <td style="width:30.94%; padding-right:5.4pt; padding-left:5.4pt; vertical-align:top;">
+                  <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:11pt;">
+                     <span style="font-family:Calibri;">
+                        <![CDATA[&nbsp;]]><img src="/employee_froms/static/src/imgs/doc2img3.png" width="199" height="26" alt=""/>
+                     </span>
+                  </p>
+               </td>
+            </tr>
+            <tr style="height:3.25pt;">
+               <td style="width:38.48%; border-bottom-style:double; border-bottom-width:1.5pt; padding-right:5.4pt; padding-left:5.4pt; vertical-align:top;">
+                  <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; font-size:1pt;">
+                     <span style="font-family:Calibri;">
+                        <![CDATA[&nbsp;]]>
+                     </span>
+                  </p>
+               </td>
+               <td style="width:30.58%; border-bottom-style:double; border-bottom-width:1.5pt; padding-right:5.4pt; padding-left:5.4pt; vertical-align:top;">
+                  <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; font-size:1pt;">
+                     <span style="font-family:Calibri;">
+                        <![CDATA[&nbsp;]]>
+                     </span>
+                  </p>
+               </td>
+               <td style="width:30.94%; border-bottom-style:double; border-bottom-width:1.5pt; padding-right:5.4pt; padding-left:5.4pt; vertical-align:top;">
+                  <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:1pt;">
+                     <strong>
+                        <span style="font-family:Calibri;">
+                           <![CDATA[&nbsp;]]>
+                        </span>
+                     </strong>
+                  </p>
+               </td>
+            </tr>
+         </tbody>
+      </table>
+   </div>
+   <!-- first section inside the page -->
+   <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; font-size:1pt;">
+      <span style="font-size:2pt;">
+         <![CDATA[&nbsp;]]>
+      </span>
+   </p>
+   <h2 dir="rtl" style="margin-top:0pt; margin-bottom:0pt; text-align:center; page-break-after:avoid; font-size:13pt;">
+      <span style="font-family:'PT Bold Heading'; font-weight:normal;">
+         طلب اشتراك منشأة<![CDATA[&nbsp;]]>
+      </span>
+   </h2>
+   <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:13pt;">
+      <span style="font-family:'PT Bold Heading';">أو إخطار تعديل بيانات المؤمن عليهم وأجورهم في</span>
+      <span style="font-family:'PT Bold Heading';">
+         <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]>
+      </span>
+      / <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> / <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]>200
+   </p>
+   <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; font-size:11pt;">
+      <span style="font-family:'Mudir MT';">
+         اسم المنشأة<![CDATA[&nbsp;]]>
+      </span>
+        <span style="position: relative; display: inline-block;">
+            <span style="font-family:'Traditional Arabic';">...................................</span>
+            <span t-field="o.employee_id.company_id.name" style="position: absolute; top: -5px; right: 0; font-family:'Mudir MT'; font-weight: bold;"/>
+        </span> 
+      <span style="font-family:'Mudir MT';">
+         المالك<![CDATA[&nbsp;]]>
+      </span>
+      / 
+      <span style="font-family:'Mudir MT';">
+         المدير المسئول<![CDATA[&nbsp;]]>
+      </span>
+      --------------------- 
+      <span style="font-family:'Mudir MT';">
+         الشكل القانوني للمنشأة<![CDATA[&nbsp;]]>
+      </span>
+      ---------------------
+   </p>
+   <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; font-size:11pt;">
+      <span style="font-family:'Mudir MT';">عنوان المنشأة</span>: 
+      <span style="font-family:'Mudir MT';">رقم العقار</span>
+      ------ 
+      <span style="font-family:'Mudir MT';">اســـــم الشارع</span>
+        <span style="position: relative; display: inline-block;">
+            <span style="font-family:'Traditional Arabic';">...................</span>
+            <span t-field="o.employee_id.company_id.street" style="position: absolute; top: -5px; right: 0; font-family:'Mudir MT'; font-weight: bold;"/>
+        </span>  
+      <span style="font-family:'Mudir MT';">
+         الشياخة<![CDATA[&nbsp;]]>
+      </span>
+      / 
+      <span style="font-family:'Mudir MT';">
+         القرية<![CDATA[&nbsp;]]>
+      </span>
+        <span style="position: relative; display: inline-block;">
+            <span style="font-family:'Traditional Arabic';">...................</span>
+            <span t-field="o.employee_id.company_id.street2" style="position: absolute; top: -5px; right: 0; font-family:'Mudir MT'; font-weight: bold;"/>
+        </span>  
+     <![CDATA[&nbsp;]]>
+      <span style="font-family:'Mudir MT';">
+         القسم<![CDATA[&nbsp;]]>
+      </span>
+      / <span style="font-family:'Mudir MT';">المركز</span>
+      -----------
+      <span style="font-family:'Mudir MT';">المحافظة</span>
+        <span style="position: relative; display: inline-block;">
+            <span style="font-family:'Traditional Arabic';">...................</span>
+            <span t-field="o.employee_id.company_id.city" style="position: absolute; top: -5px; right: 0; font-family:'Mudir MT'; font-weight: bold;"/>
+        </span>  
+   </p>
+   <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; font-size:11pt;">
+      <span style="font-family:'Mudir MT';">نسبة تأمين المرض</span>------------ <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]>
+      <span style="font-family:'Mudir MT';">
+         تاريخ بدء النسبة<![CDATA[&nbsp;]]>
+      </span>
+      <span style="font-family:'Mudir MT';">
+         <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]>
+      </span>
+      / <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]>/ <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]>20 <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]>
+      <span style="font-family:'Mudir MT';">
+         نسبة تأمين الإصابة<![CDATA[&nbsp;]]>
+      </span>
+      ------------------- <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <span style="font-family:'Mudir MT';">تاريخ بدء النسبة</span>
+      <span style="font-family:'Mudir MT';">
+         <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]>
+      </span>
+      / <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]>/ <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]>20.
+   </p>
+   <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; font-size:11pt;">
+      <span style="font-family:'Mudir MT';">
+         تاريخ التوقف<![CDATA[&nbsp;]]>
+      </span>
+      / <span style="font-family:'Mudir MT';">الاستمرار</span>
+      <span style="font-family:'Mudir MT';">
+         <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]><![CDATA[&nbsp;]]>
+      </span>
+      / <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]>/ <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]>20 <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]><span style="font-family:'Mudir MT';">سبب التوقف</span>/------------------- <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]><span style="font-family:'Mudir MT';">بدء النشاط</span>-------------- <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]><span style="font-family:'Mudir MT';">رقم التسجيل الضريبي للمنشأة</span>
+      <span style="font-family:'Mudir MT';">
+         <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]><![CDATA[&nbsp;]]>
+      </span>
+      / <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> / <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]><![CDATA[&nbsp;]]>
+   </p>
+   <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; font-size:5pt;">
+      <span style="font-size:7pt;">
+         <![CDATA[&nbsp;]]>
+      </span>
+   </p>
+   <!--  table of employees -->
+   <div dir="rtl" style="text-align:center;">
+      <table cellspacing="0" cellpadding="0" style="width:789.75pt; margin-right:auto; margin-left:auto; border-collapse:collapse;">
+         <tbody>
+         <!-- table header -->
+            <tr>
+               <td colspan="8" rowspan="3" style="width:148pt; border-style:solid; border-width:3pt 3pt 0.75pt 0.75pt; padding-right:5.03pt; padding-left:3.9pt; vertical-align:middle;">
+                  <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:13pt;"><strong><span style="font-family:Arial;">الرقــــــم التأمينــــي</span></strong></p>
+               </td>
+               <td rowspan="3" style="width:130.95pt; border-style:solid; border-width:3pt 0.75pt 0.75pt; padding-right:5.03pt; padding-left:5.03pt; vertical-align:middle;">
+                  <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; text-align:center; page-break-after:avoid; font-size:13pt;"><strong><span style="font-family:Arial;">اســــــــــــم المؤمن عليه</span></strong></p>
+               </td>
+               <td colspan="14" rowspan="3" style="width:184.1pt; border-style:solid solid solid double; border-width:3pt 0.75pt 0.75pt 2.25pt; padding-right:4.28pt; padding-left:5.03pt; vertical-align:middle;">
+                  <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; text-align:center; page-break-after:avoid; font-size:13pt;"><strong><span style="font-family:Arial;">الــرقـــــــــم القـــــومــــي</span></strong></p>
+               </td>
+               <td colspan="3" style="width:116.75pt; border-style:solid double; border-width:3pt 2.25pt 0.75pt; padding-right:4.28pt; padding-left:4.28pt; vertical-align:middle;">
+                  <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:13pt;"><strong><span style="font-family:Arial;">تاريخ الالتحاق</span></strong></p>
+               </td>
+               <td colspan="2" rowspan="2" style="width:74.25pt; border-top-style:solid; border-top-width:3pt; border-left-style:double; border-left-width:1.5pt; padding-right:4.65pt; padding-left:5.4pt; vertical-align:middle;">
+                  <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:13pt;"><strong><span style="font-family:Arial;">أجـــــر الاشتراك التأميني</span></strong></p>
+               </td>
+               <td colspan="2" rowspan="2" style="width:67.9pt; border-style:solid double solid solid; border-width:3pt 1.5pt 0.75pt 3pt; padding-right:3.9pt; padding-left:4.65pt; vertical-align:middle;">
+                  <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:13pt;">
+                     <strong>
+                        <span style="font-family:Arial;">
+                           الأجر الشامل<![CDATA[&nbsp;]]>
+                        </span>
+                     </strong>
+                  </p>
+               </td>
+            </tr>
+            <tr style="height:18.45pt;">
+               <td rowspan="2" style="width:24.65pt; border-style:solid double solid solid; border-width:0.75pt 2.25pt 0.75pt 0.75pt; padding-right:5.03pt; padding-left:4.28pt; vertical-align:middle;">
+                  <h3 dir="rtl" style="margin-top:0pt; margin-bottom:0pt; text-align:center; page-break-after:avoid; font-size:13pt;"><span style="font-family:Arial;">يــوم</span></h3>
+               </td>
+               <td rowspan="2" style="width:31.7pt; border-style:solid; border-width:0.75pt; padding-right:5.03pt; padding-left:5.03pt; vertical-align:middle;">
+                  <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:13pt;"><strong><span style="font-family:Arial;">شهر</span></strong></p>
+               </td>
+               <td rowspan="2" style="width:38.8pt; border-style:solid solid solid double; border-width:0.75pt 0.75pt 0.75pt 2.25pt; padding-right:4.28pt; padding-left:5.03pt; vertical-align:middle;">
+                  <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:13pt;"><strong><span style="font-family:Arial;">سنـــة</span></strong></p>
+               </td>
+            </tr>
+            <tr>
+               <td style="width:24.65pt; border-top-style:solid; border-top-width:0.75pt; border-left-style:solid; border-left-width:0.75pt; border-bottom-style:solid; border-bottom-width:0.75pt; padding-right:5.03pt; padding-left:5.4pt; vertical-align:middle;">
+                  <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:13pt;"><strong><span style="font-family:Arial;">قرش</span></strong></p>
+               </td>
+               <td style="width:38.8pt; border-style:solid solid solid double; border-width:0.75pt 0.75pt 0.75pt 1.5pt; padding-right:4.65pt; padding-left:5.03pt; vertical-align:middle;">
+                  <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:13pt;"><strong><span style="font-family:Arial;">جنيـه</span></strong></p>
+               </td>
+               <td style="width:31.75pt; border-style:solid double solid solid; border-width:0.75pt 1.5pt 0.75pt 0.75pt; padding-right:5.03pt; padding-left:4.65pt; vertical-align:middle;">
+                  <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:13pt;"><strong><span style="font-family:Arial;">قرش</span></strong></p>
+               </td>
+               <td style="width:25.35pt; border-style:solid; border-width:0.75pt 0.75pt 0.75pt 3pt; padding-right:3.9pt; padding-left:5.03pt; vertical-align:middle;">
+                  <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:13pt;"><strong><span style="font-family:Arial;">جنيـه</span></strong></p>
+               </td>
+            </tr>
+            
 
-         <p class="textMargin">نسبة تامين المرض: __________ تاريخ بدء النسبة: __________ نسبة تامين الاصابة: __________ تاريخ بدء النسبة: __________</p>
-        
-        <table style="width: 100%; padding: 10px; border-collapse: collapse;">
-            <tbody>
-                <tr>
-                    <td style="width: 24.9612%; text-align: center; padding: 10px;">
-                        <div style="text-align: center;">تاريخ التوقف/الإستمرار:</div>
-                    </td>
-                    <td style="width: 24.9613%; text-align: center; padding: 10px;">
-                        <div style="text-align: center;">سبب التوقف:</div>
-                    </td>
-                </tr>
-                <tr>
-                    <td style="width: 25%; text-align: center; padding: 10px;">
-                        <div style="text-align: center;">إنتهاء النشاط بدء من:</div>
-                    </td>
-                    <td style="width: 25%; text-align: center; padding: 10px;">
-                        <div style="text-align: center;">رقم التسجيل الضريبي للمنشأة: <t t-esc="o.employee_id.user_partner_id.vat"/></div>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-                
-        <table class="table table-bordered">
-            <thead class="thead-light">
-                <tr>
-                    <th>الرقم التاميني</th>
-                    <th>اسم المؤمن عليه</th>
-                    <th>الرقم القومي</th>
-                    <th>تاريخ الالتحاق</th>
-                    <th>اجر الاشتراك</th>
-                    <th>الاجر الشامل</th>
-                </tr>
-            </thead>
-            <tbody>
-                <t t-foreach="o" t-as="rec">
-                    <tr>
-                        <td><t t-esc="rec.sin_no"/></td>
-                        <!-- <td><t t-esc="rec.employee_id.arabic_name"/></td> -->
-                        <td><t t-esc="rec.employee_id.identification_id"/></td>
-                        <td><t t-esc="rec.sin_date"/></td>
-                        <td><t t-esc="rec.wage"/></td>
-                        <td><t t-esc="rec.wage"/></td>
-                        <!-- <td><t t-esc="rec.employee_id.total_paid"/></td> -->
-                    </tr>
+            <!-- end of table header -->
+      <t t-foreach="docs[increment_6:]" t-as="o">
+            
+         <t t-if="o.sin_no">
+
+            <tr style="height:22.45pt;">
+            <!-- الرقم التأميني -->
+                <!-- Initialize the counter -->
+                <t t-set="i" t-value="0"/>
+
+               <td style="width:9.05pt; border-style:solid; border-width:0.75pt 3pt 0.75pt 0.75pt; padding-right:5.03pt; padding-left:3.9pt; vertical-align:middle;">
+                  <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:12pt;">
+                     <span style="font-family:Arial;">
+                        <![CDATA[&nbsp;]]><t t-esc="o.sin_no[0]"/>
+                     </span>
+                  </p>
+               </td>
+               <td style="width:9.05pt; border-style:solid; border-width:0.75pt; padding-right:5.03pt; padding-left:5.03pt; vertical-align:middle;">
+                  <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:12pt;">
+                     <span style="font-family:Arial;">
+                        <![CDATA[&nbsp;]]><t t-esc="o.sin_no[1]"/>
+                     </span>
+                  </p>
+               </td>
+               <td style="width:9.05pt; border-style:solid; border-width:0.75pt; padding-right:5.03pt; padding-left:5.03pt; vertical-align:middle;">
+                  <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:12pt;">
+                     <span style="font-family:Arial;">
+                        <![CDATA[&nbsp;]]><t t-esc="o.sin_no[2]"/>
+                     </span>
+                  </p>
+               </td>
+               <td style="width:9.05pt; border-style:solid; border-width:0.75pt; padding-right:5.03pt; padding-left:5.03pt; vertical-align:middle;">
+                  <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:12pt;">
+                     <span style="font-family:Arial;">
+                        <![CDATA[&nbsp;]]><t t-esc="o.sin_no[3]"/>
+                     </span>
+                  </p>
+               </td>
+               <td style="width:9.05pt; border-style:solid; border-width:0.75pt; padding-right:5.03pt; padding-left:5.03pt; vertical-align:middle;">
+                  <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:12pt;">
+                     <span style="font-family:Arial;">
+                        <![CDATA[&nbsp;]]><t t-esc="o.sin_no[4]"/>
+                     </span>
+                  </p>
+               </td>
+               <td style="width:9.05pt; border-style:solid; border-width:0.75pt; padding-right:5.03pt; padding-left:5.03pt; vertical-align:middle;">
+                  <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:12pt;">
+                     <span style="font-family:Arial;">
+                        <![CDATA[&nbsp;]]><t t-esc="o.sin_no[5]"/>
+                     </span>
+                  </p>
+               </td>
+               <td style="width:9.05pt; border-style:solid; border-width:0.75pt; padding-right:5.03pt; padding-left:5.03pt; vertical-align:middle;">
+                  <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:12pt;">
+                     <span style="font-family:Arial;">
+                        <![CDATA[&nbsp;]]><t t-esc="o.sin_no[6]"/>
+                     </span>
+                  </p>
+               </td>
+               <td style="width:9.05pt; border-style:solid; border-width:0.75pt; padding-right:5.03pt; padding-left:5.03pt; vertical-align:middle;">
+                  <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:12pt;">
+                     <span style="font-family:Arial;">
+                        <![CDATA[&nbsp;]]><t t-esc="o.sin_no[7]"/>
+                     </span>
+                  </p>
+               </td>
+               <td style="width:130.95pt; border-style:solid; border-width:0.75pt; padding-right:5.03pt; padding-left:5.03pt; vertical-align:middle;">
+                  <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:12pt;">
+                     <span style="font-family:Arial;">
+                        <![CDATA[&nbsp;]]><t t-esc="o.employee_id.name"/>
+                     </span>
+                  </p>
+               </td>
+               <!-- الرقم القومي -->
+               <td style="width:2.9pt; border-style:solid; border-width:0.75pt; padding-right:5.03pt; padding-left:5.03pt; vertical-align:middle;">
+                  <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:12pt;">
+                     <span style="font-family:Arial;">
+                        <![CDATA[&nbsp;]]><t t-esc="o.employee_id.identification_id[0]"/>
+                     </span>
+                  </p>
+               </td>
+               <td style="width:3.25pt; border-style:solid; border-width:0.75pt; padding-right:5.03pt; padding-left:5.03pt; vertical-align:middle;">
+                  <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:12pt;">
+                     <span style="font-family:Arial;">
+                        <![CDATA[&nbsp;]]><t t-esc="o.employee_id.identification_id[1]"/>
+                     </span>
+                  </p>
+               </td>
+               <td style="width:3.45pt; border-style:solid; border-width:0.75pt; padding-right:5.03pt; padding-left:5.03pt; vertical-align:middle;">
+                  <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:12pt;">
+                     <span style="font-family:Arial;">
+                        <![CDATA[&nbsp;]]><t t-esc="o.employee_id.identification_id[2]"/>
+                     </span>
+                  </p>
+               </td>
+               <td style="width:3.35pt; border-style:solid; border-width:0.75pt; padding-right:5.03pt; padding-left:5.03pt; vertical-align:middle;">
+                  <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:12pt;">
+                     <span style="font-family:Arial;">
+                        <![CDATA[&nbsp;]]><t t-esc="o.employee_id.identification_id[3]"/>
+                     </span>
+                  </p>
+               </td>
+               <td style="width:2.8pt; border-style:solid; border-width:0.75pt; padding-right:5.03pt; padding-left:5.03pt; vertical-align:middle;">
+                  <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:12pt;">
+                     <span style="font-family:Arial;">
+                        <![CDATA[&nbsp;]]><t t-esc="o.employee_id.identification_id[4]"/>
+                     </span>
+                  </p>
+               </td>
+               <td style="width:3.9pt; border-style:solid; border-width:0.75pt; padding-right:5.03pt; padding-left:5.03pt; vertical-align:middle;">
+                  <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:12pt;">
+                     <span style="font-family:Arial;">
+                        <![CDATA[&nbsp;]]><t t-esc="o.employee_id.identification_id[5]"/>
+                     </span>
+                  </p>
+               </td>
+               <td style="width:1pt; border-style:solid; border-width:0.75pt; padding-right:5.03pt; padding-left:5.03pt; vertical-align:middle;">
+                  <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:12pt;">
+                     <span style="font-family:Arial;">
+                        <![CDATA[&nbsp;]]><t t-esc="o.employee_id.identification_id[6]"/>
+                     </span>
+                  </p>
+               </td>
+               <td style="width:3.35pt; border-style:solid; border-width:0.75pt; padding-right:5.03pt; padding-left:5.03pt; vertical-align:middle;">
+                  <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:12pt;">
+                     <span style="font-family:Arial;">
+                        <![CDATA[&nbsp;]]><t t-esc="o.employee_id.identification_id[7]"/>
+                     </span>
+                  </p>
+               </td>
+               <td style="width:3.35pt; border-style:solid; border-width:0.75pt; padding-right:5.03pt; padding-left:5.03pt; vertical-align:middle;">
+                  <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:12pt;">
+                     <span style="font-family:Arial;">
+                        <![CDATA[&nbsp;]]><t t-esc="o.employee_id.identification_id[8]"/>
+                     </span>
+                  </p>
+               </td>
+               <td style="width:3.35pt; border-style:solid; border-width:0.75pt; padding-right:5.03pt; padding-left:5.03pt; vertical-align:middle;">
+                  <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:12pt;">
+                     <span style="font-family:Arial;">
+                        <![CDATA[&nbsp;]]><t t-esc="o.employee_id.identification_id[9]"/>
+                     </span>
+                  </p>
+               </td>
+               <td style="width:3.35pt; border-style:solid; border-width:0.75pt; padding-right:5.03pt; padding-left:5.03pt; vertical-align:middle;">
+                  <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:12pt;">
+                     <span style="font-family:Arial;">
+                        <![CDATA[&nbsp;]]><t t-esc="o.employee_id.identification_id[10]"/>
+                     </span>
+                  </p>
+               </td>
+               <td style="width:3.35pt; border-style:solid; border-width:0.75pt; padding-right:5.03pt; padding-left:5.03pt; vertical-align:middle;">
+                  <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:12pt;">
+                     <span style="font-family:Arial;">
+                        <![CDATA[&nbsp;]]><t t-esc="o.employee_id.identification_id[11]"/>
+                     </span>
+                  </p>
+               </td>
+               <td style="width:3.35pt; border-style:solid; border-width:0.75pt; padding-right:5.03pt; padding-left:5.03pt; vertical-align:middle;">
+                  <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:12pt;">
+                     <span style="font-family:Arial;">
+                        <![CDATA[&nbsp;]]><t t-esc="o.employee_id.identification_id[12]"/>
+                     </span>
+                  </p>
+               </td>
+               <td style="width:2.95pt; border-style:solid solid solid double; border-width:0.75pt 0.75pt 0.75pt 2.25pt; padding-right:4.28pt; padding-left:5.03pt; vertical-align:middle;">
+                  <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:12pt;">
+                     <span style="font-family:Arial;">
+                        <![CDATA[&nbsp;]]><t t-esc="o.employee_id.identification_id[13]"/>
+                     </span>
+                  </p>
+               </td>
+               <!-- تاريخ الإلتحاق -->
+               <td style="width:24.65pt; border-top-style:solid; border-top-width:0.75pt; border-left-style:solid; border-left-width:0.75pt; border-bottom-style:solid; border-bottom-width:0.75pt; padding-right:5.03pt; padding-left:5.4pt; vertical-align:middle;">
+                  <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:12pt;">
+                     <span style="font-family:Arial;">
+                        <![CDATA[&nbsp;]]>
+                     </span>
+                  </p>
+               </td>
+               <td style="width:31.7pt; border-style:solid; border-width:0.75pt; padding-right:5.03pt; padding-left:5.03pt; vertical-align:middle;">
+                  <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:12pt;">
+                     <span style="font-family:Arial;">
+                        <![CDATA[&nbsp;]]>
+                     </span>
+                  </p>
+               </td>
+               <td style="width:38.8pt; border-style:solid solid solid double; border-width:0.75pt 0.75pt 0.75pt 2.25pt; padding-right:4.28pt; padding-left:5.03pt; vertical-align:middle;">
+                  <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:12pt;">
+                     <span style="font-family:Arial;">
+                        <![CDATA[&nbsp;]]>
+                     </span>
+                  </p>
+               </td>
+               <td style="width:24.65pt; border-top-style:solid; border-top-width:0.75pt; border-left-style:solid; border-left-width:0.75pt; border-bottom-style:solid; border-bottom-width:0.75pt; padding-right:5.03pt; padding-left:5.4pt; vertical-align:middle;">
+                  <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:12pt;">
+                     <span style="font-family:Arial;">
+                        <![CDATA[&nbsp;]]>
+                     </span>
+                  </p>
+               </td>
+               <td style="width:38.8pt; border-style:solid solid solid double; border-width:0.75pt 0.75pt 0.75pt 1.5pt; padding-right:4.65pt; padding-left:5.03pt; vertical-align:middle;">
+                  <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:12pt;">
+                     <span style="font-family:Arial;">
+                        <![CDATA[&nbsp;]]>
+                     </span>
+                  </p>
+               </td>
+               <td style="width:31.75pt; border-style:solid double solid solid; border-width:0.75pt 1.5pt 0.75pt 0.75pt; padding-right:5.03pt; padding-left:4.65pt; vertical-align:middle;">
+                  <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:12pt;">
+                     <span style="font-family:Arial;">
+                        <![CDATA[&nbsp;]]>
+                     </span>
+                  </p>
+               </td>
+               <td style="width:25.35pt; border-style:solid; border-width:0.75pt 0.75pt 0.75pt 3pt; padding-right:3.9pt; padding-left:5.03pt; vertical-align:middle;">
+                  <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:12pt;">
+                     <span style="font-family:Arial;">
+                        <![CDATA[&nbsp;]]>
+                     </span>
+                  </p>
+               </td>
+            </tr>
+         </t>
+      </t>
+            <!-- <tr style="height:22.45pt;">
+               <td style="width:9.05pt; border-style:solid; border-width:0.75pt 3pt 0.75pt 0.75pt; padding-right:5.03pt; padding-left:3.9pt; vertical-align:middle;">
+                  <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:12pt;">
+                     <span style="font-family:Arial;">
+                        <![CDATA[&nbsp;]]>
+                     </span>
+                  </p>
+               </td>
+               <td style="width:9.05pt; border-style:solid; border-width:0.75pt; padding-right:5.03pt; padding-left:5.03pt; vertical-align:middle;">
+                  <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:12pt;">
+                     <span style="font-family:Arial;">
+                        <![CDATA[&nbsp;]]>
+                     </span>
+                  </p>
+               </td>
+               <td style="width:9.05pt; border-style:solid; border-width:0.75pt; padding-right:5.03pt; padding-left:5.03pt; vertical-align:middle;">
+                  <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:12pt;">
+                     <span style="font-family:Arial;">
+                        <![CDATA[&nbsp;]]>
+                     </span>
+                  </p>
+               </td>
+               <td style="width:9.05pt; border-style:solid; border-width:0.75pt; padding-right:5.03pt; padding-left:5.03pt; vertical-align:middle;">
+                  <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:12pt;">
+                     <span style="font-family:Arial;">
+                        <![CDATA[&nbsp;]]>
+                     </span>
+                  </p>
+               </td>
+               <td style="width:9.05pt; border-style:solid; border-width:0.75pt; padding-right:5.03pt; padding-left:5.03pt; vertical-align:middle;">
+                  <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:12pt;">
+                     <span style="font-family:Arial;">
+                        <![CDATA[&nbsp;]]>
+                     </span>
+                  </p>
+               </td>
+               <td style="width:9.05pt; border-style:solid; border-width:0.75pt; padding-right:5.03pt; padding-left:5.03pt; vertical-align:middle;">
+                  <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:12pt;">
+                     <span style="font-family:Arial;">
+                        <![CDATA[&nbsp;]]>
+                     </span>
+                  </p>
+               </td>
+               <td style="width:9.05pt; border-style:solid; border-width:0.75pt; padding-right:5.03pt; padding-left:5.03pt; vertical-align:middle;">
+                  <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:12pt;">
+                     <span style="font-family:Arial;">
+                        <![CDATA[&nbsp;]]>
+                     </span>
+                  </p>
+               </td>
+               <td style="width:9.05pt; border-style:solid; border-width:0.75pt; padding-right:5.03pt; padding-left:5.03pt; vertical-align:middle;">
+                  <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:12pt;">
+                     <span style="font-family:Arial;">
+                        <![CDATA[&nbsp;]]>
+                     </span>
+                  </p>
+               </td>
+               <td style="width:130.95pt; border-style:solid; border-width:0.75pt; padding-right:5.03pt; padding-left:5.03pt; vertical-align:middle;">
+                  <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:12pt;">
+                     <span style="font-family:Arial;">
+                        <![CDATA[&nbsp;]]>
+                     </span>
+                  </p>
+               </td>
+               <td style="width:2.9pt; border-style:solid; border-width:0.75pt; padding-right:5.03pt; padding-left:5.03pt; vertical-align:middle;">
+                  <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:12pt;">
+                     <span style="font-family:Arial;">
+                        <![CDATA[&nbsp;]]>
+                     </span>
+                  </p>
+               </td>
+               <td style="width:3.25pt; border-style:solid; border-width:0.75pt; padding-right:5.03pt; padding-left:5.03pt; vertical-align:middle;">
+                  <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:12pt;">
+                     <span style="font-family:Arial;">
+                        <![CDATA[&nbsp;]]>
+                     </span>
+                  </p>
+               </td>
+               <td style="width:3.45pt; border-style:solid; border-width:0.75pt; padding-right:5.03pt; padding-left:5.03pt; vertical-align:middle;">
+                  <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:12pt;">
+                     <span style="font-family:Arial;">
+                        <![CDATA[&nbsp;]]>
+                     </span>
+                  </p>
+               </td>
+               <td style="width:3.35pt; border-style:solid; border-width:0.75pt; padding-right:5.03pt; padding-left:5.03pt; vertical-align:middle;">
+                  <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:12pt;">
+                     <span style="font-family:Arial;">
+                        <![CDATA[&nbsp;]]>
+                     </span>
+                  </p>
+               </td>
+               <td style="width:2.8pt; border-style:solid; border-width:0.75pt; padding-right:5.03pt; padding-left:5.03pt; vertical-align:middle;">
+                  <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:12pt;">
+                     <span style="font-family:Arial;">
+                        <![CDATA[&nbsp;]]>
+                     </span>
+                  </p>
+               </td>
+               <td style="width:3.9pt; border-style:solid; border-width:0.75pt; padding-right:5.03pt; padding-left:5.03pt; vertical-align:middle;">
+                  <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:12pt;">
+                     <span style="font-family:Arial;">
+                        <![CDATA[&nbsp;]]>
+                     </span>
+                  </p>
+               </td>
+               <td style="width:1pt; border-style:solid; border-width:0.75pt; padding-right:5.03pt; padding-left:5.03pt; vertical-align:middle;">
+                  <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:12pt;">
+                     <span style="font-family:Arial;">
+                        <![CDATA[&nbsp;]]>
+                     </span>
+                  </p>
+               </td>
+               <td style="width:3.35pt; border-style:solid; border-width:0.75pt; padding-right:5.03pt; padding-left:5.03pt; vertical-align:middle;">
+                  <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:12pt;">
+                     <span style="font-family:Arial;">
+                        <![CDATA[&nbsp;]]>
+                     </span>
+                  </p>
+               </td>
+               <td style="width:3.35pt; border-style:solid; border-width:0.75pt; padding-right:5.03pt; padding-left:5.03pt; vertical-align:middle;">
+                  <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:12pt;">
+                     <span style="font-family:Arial;">
+                        <![CDATA[&nbsp;]]>
+                     </span>
+                  </p>
+               </td>
+               <td style="width:3.35pt; border-style:solid; border-width:0.75pt; padding-right:5.03pt; padding-left:5.03pt; vertical-align:middle;">
+                  <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:12pt;">
+                     <span style="font-family:Arial;">
+                        <![CDATA[&nbsp;]]>
+                     </span>
+                  </p>
+               </td>
+               <td style="width:3.35pt; border-style:solid; border-width:0.75pt; padding-right:5.03pt; padding-left:5.03pt; vertical-align:middle;">
+                  <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:12pt;">
+                     <span style="font-family:Arial;">
+                        <![CDATA[&nbsp;]]>
+                     </span>
+                  </p>
+               </td>
+               <td style="width:3.35pt; border-style:solid; border-width:0.75pt; padding-right:5.03pt; padding-left:5.03pt; vertical-align:middle;">
+                  <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:12pt;">
+                     <span style="font-family:Arial;">
+                        <![CDATA[&nbsp;]]>
+                     </span>
+                  </p>
+               </td>
+               <td style="width:3.35pt; border-style:solid; border-width:0.75pt; padding-right:5.03pt; padding-left:5.03pt; vertical-align:middle;">
+                  <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:12pt;">
+                     <span style="font-family:Arial;">
+                        <![CDATA[&nbsp;]]>
+                     </span>
+                  </p>
+               </td>
+               <td style="width:2.95pt; border-style:solid solid solid double; border-width:0.75pt 0.75pt 0.75pt 2.25pt; padding-right:4.28pt; padding-left:5.03pt; vertical-align:middle;">
+                  <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:12pt;">
+                     <span style="font-family:Arial;">
+                        <![CDATA[&nbsp;]]>
+                     </span>
+                  </p>
+               </td>
+               <td style="width:24.65pt; border-top-style:solid; border-top-width:0.75pt; border-left-style:solid; border-left-width:0.75pt; border-bottom-style:solid; border-bottom-width:0.75pt; padding-right:5.03pt; padding-left:5.4pt; vertical-align:middle;">
+                  <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:12pt;">
+                     <span style="font-family:Arial;">
+                        <![CDATA[&nbsp;]]>
+                     </span>
+                  </p>
+               </td>
+               <td style="width:31.7pt; border-style:solid; border-width:0.75pt; padding-right:5.03pt; padding-left:5.03pt; vertical-align:middle;">
+                  <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:12pt;">
+                     <span style="font-family:Arial;">
+                        <![CDATA[&nbsp;]]>
+                     </span>
+                  </p>
+               </td>
+               <td style="width:38.8pt; border-style:solid solid solid double; border-width:0.75pt 0.75pt 0.75pt 2.25pt; padding-right:4.28pt; padding-left:5.03pt; vertical-align:middle;">
+                  <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:12pt;">
+                     <span style="font-family:Arial;">
+                        <![CDATA[&nbsp;]]>
+                     </span>
+                  </p>
+               </td>
+               <td style="width:24.65pt; border-top-style:solid; border-top-width:0.75pt; border-left-style:solid; border-left-width:0.75pt; border-bottom-style:solid; border-bottom-width:0.75pt; padding-right:5.03pt; padding-left:5.4pt; vertical-align:middle;">
+                  <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:12pt;">
+                     <span style="font-family:Arial;">
+                        <![CDATA[&nbsp;]]>
+                     </span>
+                  </p>
+               </td>
+               <td style="width:38.8pt; border-style:solid solid solid double; border-width:0.75pt 0.75pt 0.75pt 1.5pt; padding-right:4.65pt; padding-left:5.03pt; vertical-align:middle;">
+                  <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:12pt;">
+                     <span style="font-family:Arial;">
+                        <![CDATA[&nbsp;]]>
+                     </span>
+                  </p>
+               </td>
+               <td style="width:31.75pt; border-style:solid double solid solid; border-width:0.75pt 1.5pt 0.75pt 0.75pt; padding-right:5.03pt; padding-left:4.65pt; vertical-align:middle;">
+                  <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:12pt;">
+                     <span style="font-family:Arial;">
+                        <![CDATA[&nbsp;]]>
+                     </span>
+                  </p>
+               </td>
+               <td style="width:25.35pt; border-style:solid; border-width:0.75pt 0.75pt 0.75pt 3pt; padding-right:3.9pt; padding-left:5.03pt; vertical-align:middle;">
+                  <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:12pt;">
+                     <span style="font-family:Arial;">
+                        <![CDATA[&nbsp;]]>
+                     </span>
+                  </p>
+               </td>
+            </tr>
+            <tr style="height:20.8pt;">
+               <td style="width:9.05pt; border-style:solid; border-width:0.75pt 3pt 0.75pt 0.75pt; padding-right:5.03pt; padding-left:3.9pt; vertical-align:middle;">
+                  <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:12pt;">
+                     <span style="font-family:Arial;">
+                        <![CDATA[&nbsp;]]>
+                     </span>
+                  </p>
+               </td>
+               <td style="width:9.05pt; border-style:solid; border-width:0.75pt; padding-right:5.03pt; padding-left:5.03pt; vertical-align:middle;">
+                  <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:12pt;">
+                     <span style="font-family:Arial;">
+                        <![CDATA[&nbsp;]]>
+                     </span>
+                  </p>
+               </td>
+               <td style="width:9.05pt; border-style:solid; border-width:0.75pt; padding-right:5.03pt; padding-left:5.03pt; vertical-align:middle;">
+                  <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:12pt;">
+                     <span style="font-family:Arial;">
+                        <![CDATA[&nbsp;]]>
+                     </span>
+                  </p>
+               </td>
+               <td style="width:9.05pt; border-style:solid; border-width:0.75pt; padding-right:5.03pt; padding-left:5.03pt; vertical-align:middle;">
+                  <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:12pt;">
+                     <span style="font-family:Arial;">
+                        <![CDATA[&nbsp;]]>
+                     </span>
+                  </p>
+               </td>
+               <td style="width:9.05pt; border-style:solid; border-width:0.75pt; padding-right:5.03pt; padding-left:5.03pt; vertical-align:middle;">
+                  <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:12pt;">
+                     <span style="font-family:Arial;">
+                        <![CDATA[&nbsp;]]>
+                     </span>
+                  </p>
+               </td>
+               <td style="width:9.05pt; border-style:solid; border-width:0.75pt; padding-right:5.03pt; padding-left:5.03pt; vertical-align:middle;">
+                  <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:12pt;">
+                     <span style="font-family:Arial;">
+                        <![CDATA[&nbsp;]]>
+                     </span>
+                  </p>
+               </td>
+               <td style="width:9.05pt; border-style:solid; border-width:0.75pt; padding-right:5.03pt; padding-left:5.03pt; vertical-align:middle;">
+                  <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:12pt;">
+                     <span style="font-family:Arial;">
+                        <![CDATA[&nbsp;]]>
+                     </span>
+                  </p>
+               </td>
+               <td style="width:9.05pt; border-style:solid; border-width:0.75pt; padding-right:5.03pt; padding-left:5.03pt; vertical-align:middle;">
+                  <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:12pt;">
+                     <span style="font-family:Arial;">
+                        <![CDATA[&nbsp;]]>
+                     </span>
+                  </p>
+               </td>
+               <td style="width:130.95pt; border-style:solid; border-width:0.75pt; padding-right:5.03pt; padding-left:5.03pt; vertical-align:middle;">
+                  <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:12pt;">
+                     <span style="font-family:Arial;">
+                        <![CDATA[&nbsp;]]>
+                     </span>
+                  </p>
+               </td>
+               <td style="width:2.9pt; border-style:solid; border-width:0.75pt; padding-right:5.03pt; padding-left:5.03pt; vertical-align:middle;">
+                  <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:12pt;">
+                     <span style="font-family:Arial;">
+                        <![CDATA[&nbsp;]]>
+                     </span>
+                  </p>
+               </td>
+               <td style="width:3.25pt; border-style:solid; border-width:0.75pt; padding-right:5.03pt; padding-left:5.03pt; vertical-align:middle;">
+                  <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:12pt;">
+                     <span style="font-family:Arial;">
+                        <![CDATA[&nbsp;]]>
+                     </span>
+                  </p>
+               </td>
+               <td style="width:3.45pt; border-style:solid; border-width:0.75pt; padding-right:5.03pt; padding-left:5.03pt; vertical-align:middle;">
+                  <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:12pt;">
+                     <span style="font-family:Arial;">
+                        <![CDATA[&nbsp;]]>
+                     </span>
+                  </p>
+               </td>
+               <td style="width:3.35pt; border-style:solid; border-width:0.75pt; padding-right:5.03pt; padding-left:5.03pt; vertical-align:middle;">
+                  <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:12pt;">
+                     <span style="font-family:Arial;">
+                        <![CDATA[&nbsp;]]>
+                     </span>
+                  </p>
+               </td>
+               <td style="width:2.8pt; border-style:solid; border-width:0.75pt; padding-right:5.03pt; padding-left:5.03pt; vertical-align:middle;">
+                  <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:12pt;">
+                     <span style="font-family:Arial;">
+                        <![CDATA[&nbsp;]]>
+                     </span>
+                  </p>
+               </td>
+               <td style="width:3.9pt; border-style:solid; border-width:0.75pt; padding-right:5.03pt; padding-left:5.03pt; vertical-align:middle;">
+                  <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:12pt;">
+                     <span style="font-family:Arial;">
+                        <![CDATA[&nbsp;]]>
+                     </span>
+                  </p>
+               </td>
+               <td style="width:1pt; border-style:solid; border-width:0.75pt; padding-right:5.03pt; padding-left:5.03pt; vertical-align:middle;">
+                  <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:12pt;">
+                     <span style="font-family:Arial;">
+                        <![CDATA[&nbsp;]]>
+                     </span>
+                  </p>
+               </td>
+               <td style="width:3.35pt; border-style:solid; border-width:0.75pt; padding-right:5.03pt; padding-left:5.03pt; vertical-align:middle;">
+                  <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:12pt;">
+                     <span style="font-family:Arial;">
+                        <![CDATA[&nbsp;]]>
+                     </span>
+                  </p>
+               </td>
+               <td style="width:3.35pt; border-style:solid; border-width:0.75pt; padding-right:5.03pt; padding-left:5.03pt; vertical-align:middle;">
+                  <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:12pt;">
+                     <span style="font-family:Arial;">
+                        <![CDATA[&nbsp;]]>
+                     </span>
+                  </p>
+               </td>
+               <td style="width:3.35pt; border-style:solid; border-width:0.75pt; padding-right:5.03pt; padding-left:5.03pt; vertical-align:middle;">
+                  <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:12pt;">
+                     <span style="font-family:Arial;">
+                        <![CDATA[&nbsp;]]>
+                     </span>
+                  </p>
+               </td>
+               <td style="width:3.35pt; border-style:solid; border-width:0.75pt; padding-right:5.03pt; padding-left:5.03pt; vertical-align:middle;">
+                  <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:12pt;">
+                     <span style="font-family:Arial;">
+                        <![CDATA[&nbsp;]]>
+                     </span>
+                  </p>
+               </td>
+               <td style="width:3.35pt; border-style:solid; border-width:0.75pt; padding-right:5.03pt; padding-left:5.03pt; vertical-align:middle;">
+                  <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:12pt;">
+                     <span style="font-family:Arial;">
+                        <![CDATA[&nbsp;]]>
+                     </span>
+                  </p>
+               </td>
+               <td style="width:3.35pt; border-style:solid; border-width:0.75pt; padding-right:5.03pt; padding-left:5.03pt; vertical-align:middle;">
+                  <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:12pt;">
+                     <span style="font-family:Arial;">
+                        <![CDATA[&nbsp;]]>
+                     </span>
+                  </p>
+               </td>
+               <td style="width:2.95pt; border-style:solid solid solid double; border-width:0.75pt 0.75pt 0.75pt 2.25pt; padding-right:4.28pt; padding-left:5.03pt; vertical-align:middle;">
+                  <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:12pt;">
+                     <span style="font-family:Arial;">
+                        <![CDATA[&nbsp;]]>
+                     </span>
+                  </p>
+               </td>
+               <td style="width:24.65pt; border-top-style:solid; border-top-width:0.75pt; border-left-style:solid; border-left-width:0.75pt; border-bottom-style:solid; border-bottom-width:0.75pt; padding-right:5.03pt; padding-left:5.4pt; vertical-align:middle;">
+                  <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:12pt;">
+                     <span style="font-family:Arial;">
+                        <![CDATA[&nbsp;]]>
+                     </span>
+                  </p>
+               </td>
+               <td style="width:31.7pt; border-style:solid; border-width:0.75pt; padding-right:5.03pt; padding-left:5.03pt; vertical-align:middle;">
+                  <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:12pt;">
+                     <span style="font-family:Arial;">
+                        <![CDATA[&nbsp;]]>
+                     </span>
+                  </p>
+               </td>
+               <td style="width:38.8pt; border-style:solid solid solid double; border-width:0.75pt 0.75pt 0.75pt 2.25pt; padding-right:4.28pt; padding-left:5.03pt; vertical-align:middle;">
+                  <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:12pt;">
+                     <span style="font-family:Arial;">
+                        <![CDATA[&nbsp;]]>
+                     </span>
+                  </p>
+               </td>
+               <td style="width:24.65pt; border-top-style:solid; border-top-width:0.75pt; border-left-style:solid; border-left-width:0.75pt; border-bottom-style:solid; border-bottom-width:0.75pt; padding-right:5.03pt; padding-left:5.4pt; vertical-align:middle;">
+                  <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:12pt;">
+                     <span style="font-family:Arial;">
+                        <![CDATA[&nbsp;]]>
+                     </span>
+                  </p>
+               </td>
+               <td style="width:38.8pt; border-style:solid solid solid double; border-width:0.75pt 0.75pt 0.75pt 1.5pt; padding-right:4.65pt; padding-left:5.03pt; vertical-align:middle;">
+                  <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:12pt;">
+                     <span style="font-family:Arial;">
+                        <![CDATA[&nbsp;]]>
+                     </span>
+                  </p>
+               </td>
+               <td style="width:31.75pt; border-style:solid double solid solid; border-width:0.75pt 1.5pt 0.75pt 0.75pt; padding-right:5.03pt; padding-left:4.65pt; vertical-align:middle;">
+                  <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:12pt;">
+                     <span style="font-family:Arial;">
+                        <![CDATA[&nbsp;]]>
+                     </span>
+                  </p>
+               </td>
+               <td style="width:25.35pt; border-style:solid; border-width:0.75pt 0.75pt 0.75pt 3pt; padding-right:3.9pt; padding-left:5.03pt; vertical-align:middle;">
+                  <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:12pt;">
+                     <span style="font-family:Arial;">
+                        <![CDATA[&nbsp;]]>
+                     </span>
+                  </p>
+               </td>
+            </tr>
+            <tr style="height:20.8pt;">
+               <td style="width:9.05pt; border-style:solid; border-width:0.75pt 3pt 0.75pt 0.75pt; padding-right:5.03pt; padding-left:3.9pt; vertical-align:middle;">
+                  <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:12pt;">
+                     <span style="font-family:Arial;">
+                        <![CDATA[&nbsp;]]>
+                     </span>
+                  </p>
+               </td>
+               <td style="width:9.05pt; border-style:solid; border-width:0.75pt; padding-right:5.03pt; padding-left:5.03pt; vertical-align:middle;">
+                  <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:12pt;">
+                     <span style="font-family:Arial;">
+                        <![CDATA[&nbsp;]]>
+                     </span>
+                  </p>
+               </td>
+               <td style="width:9.05pt; border-style:solid; border-width:0.75pt; padding-right:5.03pt; padding-left:5.03pt; vertical-align:middle;">
+                  <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:12pt;">
+                     <span style="font-family:Arial;">
+                        <![CDATA[&nbsp;]]>
+                     </span>
+                  </p>
+               </td>
+               <td style="width:9.05pt; border-style:solid; border-width:0.75pt; padding-right:5.03pt; padding-left:5.03pt; vertical-align:middle;">
+                  <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:12pt;">
+                     <span style="font-family:Arial;">
+                        <![CDATA[&nbsp;]]>
+                     </span>
+                  </p>
+               </td>
+               <td style="width:9.05pt; border-style:solid; border-width:0.75pt; padding-right:5.03pt; padding-left:5.03pt; vertical-align:middle;">
+                  <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:12pt;">
+                     <span style="font-family:Arial;">
+                        <![CDATA[&nbsp;]]>
+                     </span>
+                  </p>
+               </td>
+               <td style="width:9.05pt; border-style:solid; border-width:0.75pt; padding-right:5.03pt; padding-left:5.03pt; vertical-align:middle;">
+                  <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:12pt;">
+                     <span style="font-family:Arial;">
+                        <![CDATA[&nbsp;]]>
+                     </span>
+                  </p>
+               </td>
+               <td style="width:9.05pt; border-style:solid; border-width:0.75pt; padding-right:5.03pt; padding-left:5.03pt; vertical-align:middle;">
+                  <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:12pt;">
+                     <span style="font-family:Arial;">
+                        <![CDATA[&nbsp;]]>
+                     </span>
+                  </p>
+               </td>
+               <td style="width:9.05pt; border-style:solid; border-width:0.75pt; padding-right:5.03pt; padding-left:5.03pt; vertical-align:middle;">
+                  <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:12pt;">
+                     <span style="font-family:Arial;">
+                        <![CDATA[&nbsp;]]>
+                     </span>
+                  </p>
+               </td>
+               <td style="width:130.95pt; border-style:solid; border-width:0.75pt; padding-right:5.03pt; padding-left:5.03pt; vertical-align:middle;">
+                  <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:12pt;">
+                     <span style="font-family:Arial;">
+                        <![CDATA[&nbsp;]]>
+                     </span>
+                  </p>
+               </td>
+               <td style="width:2.9pt; border-style:solid; border-width:0.75pt; padding-right:5.03pt; padding-left:5.03pt; vertical-align:middle;">
+                  <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:12pt;">
+                     <span style="font-family:Arial;">
+                        <![CDATA[&nbsp;]]>
+                     </span>
+                  </p>
+               </td>
+               <td style="width:3.25pt; border-style:solid; border-width:0.75pt; padding-right:5.03pt; padding-left:5.03pt; vertical-align:middle;">
+                  <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:12pt;">
+                     <span style="font-family:Arial;">
+                        <![CDATA[&nbsp;]]>
+                     </span>
+                  </p>
+               </td>
+               <td style="width:3.45pt; border-style:solid; border-width:0.75pt; padding-right:5.03pt; padding-left:5.03pt; vertical-align:middle;">
+                  <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:12pt;">
+                     <span style="font-family:Arial;">
+                        <![CDATA[&nbsp;]]>
+                     </span>
+                  </p>
+               </td>
+               <td style="width:3.35pt; border-style:solid; border-width:0.75pt; padding-right:5.03pt; padding-left:5.03pt; vertical-align:middle;">
+                  <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:12pt;">
+                     <span style="font-family:Arial;">
+                        <![CDATA[&nbsp;]]>
+                     </span>
+                  </p>
+               </td>
+               <td style="width:2.8pt; border-style:solid; border-width:0.75pt; padding-right:5.03pt; padding-left:5.03pt; vertical-align:middle;">
+                  <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:12pt;">
+                     <span style="font-family:Arial;">
+                        <![CDATA[&nbsp;]]>
+                     </span>
+                  </p>
+               </td>
+               <td style="width:3.9pt; border-style:solid; border-width:0.75pt; padding-right:5.03pt; padding-left:5.03pt; vertical-align:middle;">
+                  <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:12pt;">
+                     <span style="font-family:Arial;">
+                        <![CDATA[&nbsp;]]>
+                     </span>
+                  </p>
+               </td>
+               <td style="width:1pt; border-style:solid; border-width:0.75pt; padding-right:5.03pt; padding-left:5.03pt; vertical-align:middle;">
+                  <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:12pt;">
+                     <span style="font-family:Arial;">
+                        <![CDATA[&nbsp;]]>
+                     </span>
+                  </p>
+               </td>
+               <td style="width:3.35pt; border-style:solid; border-width:0.75pt; padding-right:5.03pt; padding-left:5.03pt; vertical-align:middle;">
+                  <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:12pt;">
+                     <span style="font-family:Arial;">
+                        <![CDATA[&nbsp;]]>
+                     </span>
+                  </p>
+               </td>
+               <td style="width:3.35pt; border-style:solid; border-width:0.75pt; padding-right:5.03pt; padding-left:5.03pt; vertical-align:middle;">
+                  <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:12pt;">
+                     <span style="font-family:Arial;">
+                        <![CDATA[&nbsp;]]>
+                     </span>
+                  </p>
+               </td>
+               <td style="width:3.35pt; border-style:solid; border-width:0.75pt; padding-right:5.03pt; padding-left:5.03pt; vertical-align:middle;">
+                  <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:12pt;">
+                     <span style="font-family:Arial;">
+                        <![CDATA[&nbsp;]]>
+                     </span>
+                  </p>
+               </td>
+               <td style="width:3.35pt; border-style:solid; border-width:0.75pt; padding-right:5.03pt; padding-left:5.03pt; vertical-align:middle;">
+                  <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:12pt;">
+                     <span style="font-family:Arial;">
+                        <![CDATA[&nbsp;]]>
+                     </span>
+                  </p>
+               </td>
+               <td style="width:3.35pt; border-style:solid; border-width:0.75pt; padding-right:5.03pt; padding-left:5.03pt; vertical-align:middle;">
+                  <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:12pt;">
+                     <span style="font-family:Arial;">
+                        <![CDATA[&nbsp;]]>
+                     </span>
+                  </p>
+               </td>
+               <td style="width:3.35pt; border-style:solid; border-width:0.75pt; padding-right:5.03pt; padding-left:5.03pt; vertical-align:middle;">
+                  <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:12pt;">
+                     <span style="font-family:Arial;">
+                        <![CDATA[&nbsp;]]>
+                     </span>
+                  </p>
+               </td>
+               <td style="width:2.95pt; border-style:solid solid solid double; border-width:0.75pt 0.75pt 0.75pt 2.25pt; padding-right:4.28pt; padding-left:5.03pt; vertical-align:middle;">
+                  <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:12pt;">
+                     <span style="font-family:Arial;">
+                        <![CDATA[&nbsp;]]>
+                     </span>
+                  </p>
+               </td>
+               <td style="width:24.65pt; border-top-style:solid; border-top-width:0.75pt; border-left-style:solid; border-left-width:0.75pt; border-bottom-style:solid; border-bottom-width:0.75pt; padding-right:5.03pt; padding-left:5.4pt; vertical-align:middle;">
+                  <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:12pt;">
+                     <span style="font-family:Arial;">
+                        <![CDATA[&nbsp;]]>
+                     </span>
+                  </p>
+               </td>
+               <td style="width:31.7pt; border-style:solid; border-width:0.75pt; padding-right:5.03pt; padding-left:5.03pt; vertical-align:middle;">
+                  <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:12pt;">
+                     <span style="font-family:Arial;">
+                        <![CDATA[&nbsp;]]>
+                     </span>
+                  </p>
+               </td>
+               <td style="width:38.8pt; border-style:solid solid solid double; border-width:0.75pt 0.75pt 0.75pt 2.25pt; padding-right:4.28pt; padding-left:5.03pt; vertical-align:middle;">
+                  <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:12pt;">
+                     <span style="font-family:Arial;">
+                        <![CDATA[&nbsp;]]>
+                     </span>
+                  </p>
+               </td>
+               <td style="width:24.65pt; border-top-style:solid; border-top-width:0.75pt; border-left-style:solid; border-left-width:0.75pt; border-bottom-style:solid; border-bottom-width:0.75pt; padding-right:5.03pt; padding-left:5.4pt; vertical-align:middle;">
+                  <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:12pt;">
+                     <span style="font-family:Arial;">
+                        <![CDATA[&nbsp;]]>
+                     </span>
+                  </p>
+               </td>
+               <td style="width:38.8pt; border-style:solid solid solid double; border-width:0.75pt 0.75pt 0.75pt 1.5pt; padding-right:4.65pt; padding-left:5.03pt; vertical-align:middle;">
+                  <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:12pt;">
+                     <span style="font-family:Arial;">
+                        <![CDATA[&nbsp;]]>
+                     </span>
+                  </p>
+               </td>
+               <td style="width:31.75pt; border-style:solid double solid solid; border-width:0.75pt 1.5pt 0.75pt 0.75pt; padding-right:5.03pt; padding-left:4.65pt; vertical-align:middle;">
+                  <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:12pt;">
+                     <span style="font-family:Arial;">
+                        <![CDATA[&nbsp;]]>
+                     </span>
+                  </p>
+               </td>
+               <td style="width:25.35pt; border-style:solid; border-width:0.75pt 0.75pt 0.75pt 3pt; padding-right:3.9pt; padding-left:5.03pt; vertical-align:middle;">
+                  <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:12pt;">
+                     <span style="font-family:Arial;">
+                        <![CDATA[&nbsp;]]>
+                     </span>
+                  </p>
+               </td>
+            </tr>
+            <tr style="height:20.8pt;">
+               <td style="width:9.05pt; border-style:solid; border-width:0.75pt 3pt 0.75pt 0.75pt; padding-right:5.03pt; padding-left:3.9pt; vertical-align:middle;">
+                  <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:12pt;">
+                     <span style="font-family:Arial;">
+                        <![CDATA[&nbsp;]]>
+                     </span>
+                  </p>
+               </td>
+               <td style="width:9.05pt; border-style:solid; border-width:0.75pt; padding-right:5.03pt; padding-left:5.03pt; vertical-align:middle;">
+                  <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:12pt;">
+                     <span style="font-family:Arial;">
+                        <![CDATA[&nbsp;]]>
+                     </span>
+                  </p>
+               </td>
+               <td style="width:9.05pt; border-style:solid; border-width:0.75pt; padding-right:5.03pt; padding-left:5.03pt; vertical-align:middle;">
+                  <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:12pt;">
+                     <span style="font-family:Arial;">
+                        <![CDATA[&nbsp;]]>
+                     </span>
+                  </p>
+               </td>
+               <td style="width:9.05pt; border-style:solid; border-width:0.75pt; padding-right:5.03pt; padding-left:5.03pt; vertical-align:middle;">
+                  <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:12pt;">
+                     <span style="font-family:Arial;">
+                        <![CDATA[&nbsp;]]>
+                     </span>
+                  </p>
+               </td>
+               <td style="width:9.05pt; border-style:solid; border-width:0.75pt; padding-right:5.03pt; padding-left:5.03pt; vertical-align:middle;">
+                  <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:12pt;">
+                     <span style="font-family:Arial;">
+                        <![CDATA[&nbsp;]]>
+                     </span>
+                  </p>
+               </td>
+               <td style="width:9.05pt; border-style:solid; border-width:0.75pt; padding-right:5.03pt; padding-left:5.03pt; vertical-align:middle;">
+                  <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:12pt;">
+                     <span style="font-family:Arial;">
+                        <![CDATA[&nbsp;]]>
+                     </span>
+                  </p>
+               </td>
+               <td style="width:9.05pt; border-style:solid; border-width:0.75pt; padding-right:5.03pt; padding-left:5.03pt; vertical-align:middle;">
+                  <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:12pt;">
+                     <span style="font-family:Arial;">
+                        <![CDATA[&nbsp;]]>
+                     </span>
+                  </p>
+               </td>
+               <td style="width:9.05pt; border-style:solid; border-width:0.75pt; padding-right:5.03pt; padding-left:5.03pt; vertical-align:middle;">
+                  <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:12pt;">
+                     <span style="font-family:Arial;">
+                        <![CDATA[&nbsp;]]>
+                     </span>
+                  </p>
+               </td>
+               <td style="width:130.95pt; border-style:solid; border-width:0.75pt; padding-right:5.03pt; padding-left:5.03pt; vertical-align:middle;">
+                  <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:12pt;">
+                     <span style="font-family:Arial;">
+                        <![CDATA[&nbsp;]]>
+                     </span>
+                  </p>
+               </td>
+               <td style="width:2.9pt; border-style:solid; border-width:0.75pt; padding-right:5.03pt; padding-left:5.03pt; vertical-align:middle;">
+                  <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:12pt;">
+                     <span style="font-family:Arial;">
+                        <![CDATA[&nbsp;]]>
+                     </span>
+                  </p>
+               </td>
+               <td style="width:3.25pt; border-style:solid; border-width:0.75pt; padding-right:5.03pt; padding-left:5.03pt; vertical-align:middle;">
+                  <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:12pt;">
+                     <span style="font-family:Arial;">
+                        <![CDATA[&nbsp;]]>
+                     </span>
+                  </p>
+               </td>
+               <td style="width:3.45pt; border-style:solid; border-width:0.75pt; padding-right:5.03pt; padding-left:5.03pt; vertical-align:middle;">
+                  <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:12pt;">
+                     <span style="font-family:Arial;">
+                        <![CDATA[&nbsp;]]>
+                     </span>
+                  </p>
+               </td>
+               <td style="width:3.35pt; border-style:solid; border-width:0.75pt; padding-right:5.03pt; padding-left:5.03pt; vertical-align:middle;">
+                  <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:12pt;">
+                     <span style="font-family:Arial;">
+                        <![CDATA[&nbsp;]]>
+                     </span>
+                  </p>
+               </td>
+               <td style="width:2.8pt; border-style:solid; border-width:0.75pt; padding-right:5.03pt; padding-left:5.03pt; vertical-align:middle;">
+                  <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:12pt;">
+                     <span style="font-family:Arial;">
+                        <![CDATA[&nbsp;]]>
+                     </span>
+                  </p>
+               </td>
+               <td style="width:3.9pt; border-style:solid; border-width:0.75pt; padding-right:5.03pt; padding-left:5.03pt; vertical-align:middle;">
+                  <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:12pt;">
+                     <span style="font-family:Arial;">
+                        <![CDATA[&nbsp;]]>
+                     </span>
+                  </p>
+               </td>
+               <td style="width:1pt; border-style:solid; border-width:0.75pt; padding-right:5.03pt; padding-left:5.03pt; vertical-align:middle;">
+                  <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:12pt;">
+                     <span style="font-family:Arial;">
+                        <![CDATA[&nbsp;]]>
+                     </span>
+                  </p>
+               </td>
+               <td style="width:3.35pt; border-style:solid; border-width:0.75pt; padding-right:5.03pt; padding-left:5.03pt; vertical-align:middle;">
+                  <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:12pt;">
+                     <span style="font-family:Arial;">
+                        <![CDATA[&nbsp;]]>
+                     </span>
+                  </p>
+               </td>
+               <td style="width:3.35pt; border-style:solid; border-width:0.75pt; padding-right:5.03pt; padding-left:5.03pt; vertical-align:middle;">
+                  <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:12pt;">
+                     <span style="font-family:Arial;">
+                        <![CDATA[&nbsp;]]>
+                     </span>
+                  </p>
+               </td>
+               <td style="width:3.35pt; border-style:solid; border-width:0.75pt; padding-right:5.03pt; padding-left:5.03pt; vertical-align:middle;">
+                  <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:12pt;">
+                     <span style="font-family:Arial;">
+                        <![CDATA[&nbsp;]]>
+                     </span>
+                  </p>
+               </td>
+               <td style="width:3.35pt; border-style:solid; border-width:0.75pt; padding-right:5.03pt; padding-left:5.03pt; vertical-align:middle;">
+                  <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:12pt;">
+                     <span style="font-family:Arial;">
+                        <![CDATA[&nbsp;]]>
+                     </span>
+                  </p>
+               </td>
+               <td style="width:3.35pt; border-style:solid; border-width:0.75pt; padding-right:5.03pt; padding-left:5.03pt; vertical-align:middle;">
+                  <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:12pt;">
+                     <span style="font-family:Arial;">
+                        <![CDATA[&nbsp;]]>
+                     </span>
+                  </p>
+               </td>
+               <td style="width:3.35pt; border-style:solid; border-width:0.75pt; padding-right:5.03pt; padding-left:5.03pt; vertical-align:middle;">
+                  <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:12pt;">
+                     <span style="font-family:Arial;">
+                        <![CDATA[&nbsp;]]>
+                     </span>
+                  </p>
+               </td>
+               <td style="width:2.95pt; border-style:solid solid solid double; border-width:0.75pt 0.75pt 0.75pt 2.25pt; padding-right:4.28pt; padding-left:5.03pt; vertical-align:middle;">
+                  <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:12pt;">
+                     <span style="font-family:Arial;">
+                        <![CDATA[&nbsp;]]>
+                     </span>
+                  </p>
+               </td>
+               <td style="width:24.65pt; border-top-style:solid; border-top-width:0.75pt; border-left-style:solid; border-left-width:0.75pt; border-bottom-style:solid; border-bottom-width:0.75pt; padding-right:5.03pt; padding-left:5.4pt; vertical-align:middle;">
+                  <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:12pt;">
+                     <span style="font-family:Arial;">
+                        <![CDATA[&nbsp;]]>
+                     </span>
+                  </p>
+               </td>
+               <td style="width:31.7pt; border-style:solid; border-width:0.75pt; padding-right:5.03pt; padding-left:5.03pt; vertical-align:middle;">
+                  <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:12pt;">
+                     <span style="font-family:Arial;">
+                        <![CDATA[&nbsp;]]>
+                     </span>
+                  </p>
+               </td>
+               <td style="width:38.8pt; border-style:solid solid solid double; border-width:0.75pt 0.75pt 0.75pt 2.25pt; padding-right:4.28pt; padding-left:5.03pt; vertical-align:middle;">
+                  <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:12pt;">
+                     <span style="font-family:Arial;">
+                        <![CDATA[&nbsp;]]>
+                     </span>
+                  </p>
+               </td>
+               <td style="width:24.65pt; border-top-style:solid; border-top-width:0.75pt; border-left-style:solid; border-left-width:0.75pt; border-bottom-style:solid; border-bottom-width:0.75pt; padding-right:5.03pt; padding-left:5.4pt; vertical-align:middle;">
+                  <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:12pt;">
+                     <span style="font-family:Arial;">
+                        <![CDATA[&nbsp;]]>
+                     </span>
+                  </p>
+               </td>
+               <td style="width:38.8pt; border-style:solid solid solid double; border-width:0.75pt 0.75pt 0.75pt 1.5pt; padding-right:4.65pt; padding-left:5.03pt; vertical-align:middle;">
+                  <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:12pt;">
+                     <span style="font-family:Arial;">
+                        <![CDATA[&nbsp;]]>
+                     </span>
+                  </p>
+               </td>
+               <td style="width:31.75pt; border-style:solid double solid solid; border-width:0.75pt 1.5pt 0.75pt 0.75pt; padding-right:5.03pt; padding-left:4.65pt; vertical-align:middle;">
+                  <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:12pt;">
+                     <span style="font-family:Arial;">
+                        <![CDATA[&nbsp;]]>
+                     </span>
+                  </p>
+               </td>
+               <td style="width:25.35pt; border-style:solid; border-width:0.75pt 0.75pt 0.75pt 3pt; padding-right:3.9pt; padding-left:5.03pt; vertical-align:middle;">
+                  <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:12pt;">
+                     <span style="font-family:Arial;">
+                        <![CDATA[&nbsp;]]>
+                     </span>
+                  </p>
+               </td>
+            </tr>
+            <tr style="height:20.8pt;">
+               <td style="width:9.05pt; border-style:solid; border-width:0.75pt 3pt 3pt 0.75pt; padding-right:5.03pt; padding-left:3.9pt; vertical-align:middle;">
+                  <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:12pt;">
+                     <span style="font-family:Arial;">
+                        <![CDATA[&nbsp;]]>
+                     </span>
+                  </p>
+               </td>
+               <td style="width:9.05pt; border-style:solid; border-width:0.75pt 0.75pt 3pt; padding-right:5.03pt; padding-left:5.03pt; vertical-align:middle;">
+                  <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:12pt;">
+                     <span style="font-family:Arial;">
+                        <![CDATA[&nbsp;]]>
+                     </span>
+                  </p>
+               </td>
+               <td style="width:9.05pt; border-style:solid; border-width:0.75pt 0.75pt 3pt; padding-right:5.03pt; padding-left:5.03pt; vertical-align:middle;">
+                  <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:12pt;">
+                     <span style="font-family:Arial;">
+                        <![CDATA[&nbsp;]]>
+                     </span>
+                  </p>
+               </td>
+               <td style="width:9.05pt; border-style:solid; border-width:0.75pt 0.75pt 3pt; padding-right:5.03pt; padding-left:5.03pt; vertical-align:middle;">
+                  <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:12pt;">
+                     <span style="font-family:Arial;">
+                        <![CDATA[&nbsp;]]>
+                     </span>
+                  </p>
+               </td>
+               <td style="width:9.05pt; border-style:solid; border-width:0.75pt 0.75pt 3pt; padding-right:5.03pt; padding-left:5.03pt; vertical-align:middle;">
+                  <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:12pt;">
+                     <span style="font-family:Arial;">
+                        <![CDATA[&nbsp;]]>
+                     </span>
+                  </p>
+               </td>
+               <td style="width:9.05pt; border-style:solid; border-width:0.75pt 0.75pt 3pt; padding-right:5.03pt; padding-left:5.03pt; vertical-align:middle;">
+                  <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:12pt;">
+                     <span style="font-family:Arial;">
+                        <![CDATA[&nbsp;]]>
+                     </span>
+                  </p>
+               </td>
+               <td style="width:9.05pt; border-style:solid; border-width:0.75pt 0.75pt 3pt; padding-right:5.03pt; padding-left:5.03pt; vertical-align:middle;">
+                  <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:12pt;">
+                     <span style="font-family:Arial;">
+                        <![CDATA[&nbsp;]]>
+                     </span>
+                  </p>
+               </td>
+               <td style="width:9.05pt; border-style:solid; border-width:0.75pt 0.75pt 3pt; padding-right:5.03pt; padding-left:5.03pt; vertical-align:middle;">
+                  <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:12pt;">
+                     <span style="font-family:Arial;">
+                        <![CDATA[&nbsp;]]>
+                     </span>
+                  </p>
+               </td>
+               <td style="width:130.95pt; border-style:solid; border-width:0.75pt 0.75pt 3pt; padding-right:5.03pt; padding-left:5.03pt; vertical-align:middle;">
+                  <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:12pt;">
+                     <span style="font-family:Arial;">
+                        <![CDATA[&nbsp;]]>
+                     </span>
+                  </p>
+               </td>
+               <td style="width:2.9pt; border-style:solid; border-width:0.75pt 0.75pt 3pt; padding-right:5.03pt; padding-left:5.03pt; vertical-align:middle;">
+                  <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:12pt;">
+                     <span style="font-family:Arial;">
+                        <![CDATA[&nbsp;]]>
+                     </span>
+                  </p>
+               </td>
+               <td style="width:3.25pt; border-style:solid; border-width:0.75pt 0.75pt 3pt; padding-right:5.03pt; padding-left:5.03pt; vertical-align:middle;">
+                  <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:12pt;">
+                     <span style="font-family:Arial;">
+                        <![CDATA[&nbsp;]]>
+                     </span>
+                  </p>
+               </td>
+               <td style="width:3.45pt; border-style:solid; border-width:0.75pt 0.75pt 3pt; padding-right:5.03pt; padding-left:5.03pt; vertical-align:middle;">
+                  <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:12pt;">
+                     <span style="font-family:Arial;">
+                        <![CDATA[&nbsp;]]>
+                     </span>
+                  </p>
+               </td>
+               <td style="width:3.35pt; border-style:solid; border-width:0.75pt 0.75pt 3pt; padding-right:5.03pt; padding-left:5.03pt; vertical-align:middle;">
+                  <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:12pt;">
+                     <span style="font-family:Arial;">
+                        <![CDATA[&nbsp;]]>
+                     </span>
+                  </p>
+               </td>
+               <td style="width:2.8pt; border-style:solid; border-width:0.75pt 0.75pt 3pt; padding-right:5.03pt; padding-left:5.03pt; vertical-align:middle;">
+                  <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:12pt;">
+                     <span style="font-family:Arial;">
+                        <![CDATA[&nbsp;]]>
+                     </span>
+                  </p>
+               </td>
+               <td style="width:3.9pt; border-style:solid; border-width:0.75pt 0.75pt 3pt; padding-right:5.03pt; padding-left:5.03pt; vertical-align:middle;">
+                  <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:12pt;">
+                     <span style="font-family:Arial;">
+                        <![CDATA[&nbsp;]]>
+                     </span>
+                  </p>
+               </td>
+               <td style="width:1pt; border-style:solid; border-width:0.75pt 0.75pt 3pt; padding-right:5.03pt; padding-left:5.03pt; vertical-align:middle;">
+                  <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:12pt;">
+                     <span style="font-family:Arial;">
+                        <![CDATA[&nbsp;]]>
+                     </span>
+                  </p>
+               </td>
+               <td style="width:3.35pt; border-style:solid; border-width:0.75pt 0.75pt 3pt; padding-right:5.03pt; padding-left:5.03pt; vertical-align:middle;">
+                  <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:12pt;">
+                     <span style="font-family:Arial;">
+                        <![CDATA[&nbsp;]]>
+                     </span>
+                  </p>
+               </td>
+               <td style="width:3.35pt; border-style:solid; border-width:0.75pt 0.75pt 3pt; padding-right:5.03pt; padding-left:5.03pt; vertical-align:middle;">
+                  <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:12pt;">
+                     <span style="font-family:Arial;">
+                        <![CDATA[&nbsp;]]>
+                     </span>
+                  </p>
+               </td>
+               <td style="width:3.35pt; border-style:solid; border-width:0.75pt 0.75pt 3pt; padding-right:5.03pt; padding-left:5.03pt; vertical-align:middle;">
+                  <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:12pt;">
+                     <span style="font-family:Arial;">
+                        <![CDATA[&nbsp;]]>
+                     </span>
+                  </p>
+               </td>
+               <td style="width:3.35pt; border-style:solid; border-width:0.75pt 0.75pt 3pt; padding-right:5.03pt; padding-left:5.03pt; vertical-align:middle;">
+                  <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:12pt;">
+                     <span style="font-family:Arial;">
+                        <![CDATA[&nbsp;]]>
+                     </span>
+                  </p>
+               </td>
+               <td style="width:3.35pt; border-style:solid; border-width:0.75pt 0.75pt 3pt; padding-right:5.03pt; padding-left:5.03pt; vertical-align:middle;">
+                  <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:12pt;">
+                     <span style="font-family:Arial;">
+                        <![CDATA[&nbsp;]]>
+                     </span>
+                  </p>
+               </td>
+               <td style="width:3.35pt; border-style:solid; border-width:0.75pt 0.75pt 3pt; padding-right:5.03pt; padding-left:5.03pt; vertical-align:middle;">
+                  <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:12pt;">
+                     <span style="font-family:Arial;">
+                        <![CDATA[&nbsp;]]>
+                     </span>
+                  </p>
+               </td>
+               <td style="width:2.95pt; border-style:solid solid solid double; border-width:0.75pt 0.75pt 3pt 2.25pt; padding-right:4.28pt; padding-left:5.03pt; vertical-align:middle;">
+                  <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:12pt;">
+                     <span style="font-family:Arial;">
+                        <![CDATA[&nbsp;]]>
+                     </span>
+                  </p>
+               </td>
+               <td style="width:24.65pt; border-top-style:solid; border-top-width:0.75pt; border-left-style:solid; border-left-width:0.75pt; border-bottom-style:solid; border-bottom-width:3pt; padding-right:5.03pt; padding-left:5.4pt; vertical-align:middle;">
+                  <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:12pt;">
+                     <span style="font-family:Arial;">
+                        <![CDATA[&nbsp;]]>
+                     </span>
+                  </p>
+               </td>
+               <td style="width:31.7pt; border-style:solid; border-width:0.75pt 0.75pt 3pt; padding-right:5.03pt; padding-left:5.03pt; vertical-align:middle;">
+                  <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:12pt;">
+                     <span style="font-family:Arial;">
+                        <![CDATA[&nbsp;]]>
+                     </span>
+                  </p>
+               </td>
+               <td style="width:38.8pt; border-style:solid solid solid double; border-width:0.75pt 0.75pt 3pt 2.25pt; padding-right:4.28pt; padding-left:5.03pt; vertical-align:middle;">
+                  <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:12pt;">
+                     <span style="font-family:Arial;">
+                        <![CDATA[&nbsp;]]>
+                     </span>
+                  </p>
+               </td>
+               <td style="width:24.65pt; border-top-style:solid; border-top-width:0.75pt; border-left-style:solid; border-left-width:0.75pt; border-bottom-style:solid; border-bottom-width:3pt; padding-right:5.03pt; padding-left:5.4pt; vertical-align:middle;">
+                  <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:12pt;">
+                     <span style="font-family:Arial;">
+                        <![CDATA[&nbsp;]]>
+                     </span>
+                  </p>
+               </td>
+               <td style="width:38.8pt; border-style:solid solid solid double; border-width:0.75pt 0.75pt 3pt 1.5pt; padding-right:4.65pt; padding-left:5.03pt; vertical-align:middle;">
+                  <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:12pt;">
+                     <span style="font-family:Arial;">
+                        <![CDATA[&nbsp;]]>
+                     </span>
+                  </p>
+               </td>
+               <td style="width:31.75pt; border-style:solid double solid solid; border-width:0.75pt 1.5pt 3pt 0.75pt; padding-right:5.03pt; padding-left:4.65pt; vertical-align:middle;">
+                  <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:12pt;">
+                     <span style="font-family:Arial;">
+                        <![CDATA[&nbsp;]]>
+                     </span>
+                  </p>
+               </td>
+               <td style="width:25.35pt; border-style:solid; border-width:0.75pt 0.75pt 3pt 3pt; padding-right:3.9pt; padding-left:5.03pt; vertical-align:middle;">
+                  <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:12pt;">
+                     <span style="font-family:Arial;">
+                        <![CDATA[&nbsp;]]>
+                     </span>
+                  </p>
+               </td>
+            </tr> -->
+         </tbody>
+      </table>
+      <!-- increment by 6 -->
+      <t t-set="increment_6" t-value="increment_6 + 6"/>  
+   </div>
+   <p dir="rtl" style="margin-top:6pt; margin-bottom:0pt; line-height:135%; font-size:11pt;">
+      <span style="font-family:'Mudir MT';">أقـــر أنا</span>-------------------------------------- <span style="font-family:'Mudir MT';">بصفتي</span>------------------ <span style="font-family:'Mudir MT';">بأن إجمالي أعداد المؤمن عليهم</span>--------- <![CDATA[&nbsp;]]><span style="font-family:'Mudir MT';">عاملاً</span>.
+   </p>
+   <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; font-size:11pt;">
+      <span style="font-family:'Mudir MT';">
+         وأن أجور الشهر الحالي<![CDATA[&nbsp;]]>
+      </span>
+      ------------<strong>جنية</strong> <![CDATA[&nbsp;]]>------------ <strong>قرش</strong> 
+      <span style="font-family:'Mudir MT';">
+         وأن جميع البيانات الواردة بهذه الاستمارة وملحقاتها صحيحة<![CDATA[&nbsp;]]>
+      </span>
+      ( 
+      <span style="font-family:'Mudir MT';">
+         الأجر الشامل لحساب اشتراكات التأمين الصحي الشامل<![CDATA[&nbsp;]]>
+      </span>
+      ).
+   </p>
+   <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; font-size:11pt;"><span style="font-family:'Mudir MT';">صاحب العمل أو المدير المسئول</span>------------------------------- <span style="font-family:'Mudir MT';">روجعت بيانات هذا الطلب على طلبات اشتراك المؤمن عليهم ووجدت صحيحة</span>.</p>
+   <p dir="rtl" style="margin-top:6pt; margin-bottom:0pt; text-align:left; font-size:13pt;">
+      <span style="font-family:'PT Bold Heading'; font-size:11pt;">مستلم الاستمارة</span><span style="font-size:11pt;">/------------------------</span>
+      <span style="font-size:11pt;">
+         <![CDATA[&nbsp;]]><![CDATA[&nbsp;]]>
+      </span>
+      <span style="width:9.41pt; display:inline-block;">
+         <![CDATA[&nbsp;]]>
+      </span>
+      <span style="width:36pt; display:inline-block;">
+         <![CDATA[&nbsp;]]>
+      </span>
+      <span style="width:36pt; display:inline-block;">
+         <![CDATA[&nbsp;]]>
+      </span>
+      <span style="width:36pt; display:inline-block;">
+         <![CDATA[&nbsp;]]>
+      </span>
+      <span style="width:36pt; display:inline-block;">
+         <![CDATA[&nbsp;]]>
+      </span>
+      <span style="font-family:'PT Bold Heading'; font-size:11pt;">تمت مطابقة التوقيع بمعرفتي</span><span style="font-size:11pt;">/------------------------</span>
+      <span style="font-size:11pt;">
+         <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]>
+      </span>
+   </p>
+   <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; text-align:left; font-size:11pt;">
+      <span style="font-family:'PT Bold Heading';">أخصائي الاشتراك</span>/------------------------ <![CDATA[&nbsp;]]><span style="font-family:'PT Bold Heading';">سجل آليا</span>/------------------------ <![CDATA[&nbsp;]]><span style="font-family:'PT Bold Heading';">روجع آلياً</span>/------------------------ <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]>
+   </p>
+   <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; font-size:13pt;">
+      <strong><span style="font-family:'Mudir MT'; font-size:11pt;">تحريرًا في</span></strong><strong><span style="font-size:11pt;">:</span></strong>
+      <strong>
+         <span style="font-size:11pt;">
+            <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]>
+         </span>
+      </strong>
+      <strong>
+         <span style="font-size:11pt;">
+            <![CDATA[&nbsp;]]><![CDATA[&nbsp;]]>
+         </span>
+      </strong>
+      <strong>
+         <span style="font-size:11pt;">
+            <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]><![CDATA[&nbsp;]]>
+         </span>
+      </strong>
+      <strong><span style="font-size:11pt;">/</span></strong>
+      <strong>
+         <span style="font-size:11pt;">
+            <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]><![CDATA[&nbsp;]]>
+         </span>
+      </strong>
+      <strong><span style="font-size:11pt;">/</span></strong>
+      <strong>
+         <span style="font-size:11pt;">
+            <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]>
+         </span>
+      </strong>
+      <strong><span style="font-size:11pt;">20</span></strong>
+      <strong>
+         <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]><![CDATA[&nbsp;]]>
+      </strong>
+      <strong>
+         <span style="font-size:12pt;">
+            <![CDATA[&nbsp;]]>
+         </span>
+      </strong>
+      <strong>
+         <span style="font-size:12pt;">
+            (<![CDATA[&nbsp;]]>
+         </span>
+      </strong>
+      <strong>
+         <span style="font-family:'Mudir MT'; font-size:12pt;">
+            أنظــر خلفه<![CDATA[&nbsp;]]>
+         </span>
+      </strong>
+      <strong><span style="font-size:12pt;">)</span></strong>
+   </p>
+</div>
                 </t>
-            </tbody>
-
-        </table>
-                
-                <p class="textMargin">اقر انا______________________بصفتي_____________________ بأن عدد المؤمن عليهم__________________ عاملا</p>
-                <p class="textMargin">و ان اجور الشهر الحالي:_____ و ان جميع البيانات الواردة بهذا النموذج و ملحقاته صحيحة(الاجر الشامل لحساب التامين الصحي الشامل)</p>
-                <p class="textMargin">توقيع صاحب العمل او المدير المسئول_______________ روجعت بيانات هذا الطلب علي طلبات اشتراك المؤمن عليهم ووجدت صحيحة</p>
-
-                <table class="table signature-table">
-                    <tbody>
-                        <tr>
-                            <td>مستلم النموذج/___________________</td>
-                            <td>تم مطابقة التوقيع بمعرفتي/____________________</td>
-                        </tr>
-                    </tbody>
-                </table>
-
-                <p>اخصائي الاشتراك/____________________ سجل اليا/___________________ روجع اليا/____________________</p>
-                
-                <table class="table">
-                    <tbody>
-                        <tr>
-                            <td>تحريرا في _____/______/_______20</td>
-                            <td>(انظر خلفه)</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-</body>
-</html>
-    </t>
-</t>
+            </t>
+        </t>
 </template>
 
 
 
+<!-- document number 1 -->
+<template id="report_form1_document" >
+<t t-name="employee_froms.report_form1_document">
+   <t t-call="web.html_container">
+   <t t-foreach="docs" t-as="doc">
+      <t t-call="web.basic_layout">
+         <style type="text/css">
+            body {
+            font-family: 'Arfont';
+            font-size: 22px;
+            direction: rtl;
+            text-align: right;
+            }
+            .container {
+            display: flex;
+            align-items: flex-start;
+            /* Aligns the content at the start of the flex container */
+            justify-content: flex-start;
+            margin: 20px;
+            }
+            .text-block {
+            width: 35%;
+            /* Adjust the width of each text block */
+            }
+            .vertical-line {
+            border-right: 5px solid black;
+            /* Vertical line on the right */
+            height: 220px;
+            /* Adjust height to match the content */
+            margin-left: 20px;
+            /* Move the line to the right */
+            }
+            .awlist1 {
+            list-style: none;
+            counter-reset: awlistcounter2_0
+            }
+            .awlist1>li:before {
+            content: '('counter(awlistcounter2_0) ')';
+            counter-increment: awlistcounter2_0
+            }
+            .awlist2 {
+            list-style: none;
+            counter-reset: awlistcounter3_0
+            }
+            .awlist2>li:before {
+            content: counter(awlistcounter3_0) '-';
+            counter-increment: awlistcounter3_0
+            }
+            .awlist3 {
+            list-style: none;
+            counter-reset: awlistcounter3_0 1
+            }
+            .awlist3>li:before {
+            content: counter(awlistcounter3_0) '-';
+            counter-increment: awlistcounter3_0
+            }
+         </style>
+         <div>
+            <div style="clear:both;">
+               <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; line-height:normal;">
+                  <![CDATA[&nbsp;]]>
+               </p>
+               <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; line-height:normal;">
+                  <span dir="ltr">
+                     <![CDATA[&nbsp;]]>
+                  </span>
+               </p>
+            </div>
+            <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; line-height:normal; font-size:16pt;">
+               <strong><span style="font-family:Andalus;">الهيئة القومية للتأمين الإجتماعى</span></strong>
+               <strong>
+                  <span style="font-family:Andalus;">
+                     <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> 
+                        <img src="https://www.nosi.gov.eg/_layouts/15/NOSI.Portal.Branding/images/logo.png" style="width: 84px; height: 77.7974px;"  alt=""/>
+                     <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> 
+                  </span>
+               </strong>
+               <strong>
+                  <span style="font-family:Arial; font-size:12pt;">
+                     <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]><![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]><![CDATA[&nbsp;]]>
+                  </span>
+               </strong>
+               <strong><span style="font-family:Arial; font-size:12pt;">نموذج رقم ( 1)</span></strong>
+               <strong>
+                  <span style="font-family:Arial; font-size:12pt;">
+                     <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]><![CDATA[&nbsp;]]>
+                  </span>
+               </strong>
+            </p>
+            <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; line-height:normal; font-size:14pt;">
+               <strong>
+                  <span style="font-family:Arial;">
+                     مكتب<![CDATA[&nbsp;]]>
+                  </span>
+               </strong>
+               <strong>:</strong>
+               <strong>
+                  <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]>
+               </strong>
+               <strong>
+                  <![CDATA[&nbsp;]]>
+               </strong>
+            </p>
+            <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; line-height:normal; font-size:8pt;">
+               <span style="height:0pt; display:block; position:absolute; z-index:5;">
+               <img src="/employee_froms/static/src/imgs/doc1img1.png" width="768" height="2" alt="" style="margin: 0 auto 0 0; display: block; "/>
+               </span><span style="height:0pt; display:block; position:absolute; z-index:6;">
+               <img src="/home/abdelrhman/odoo/odoo15/odoo/custom_addons/employee_froms/static/src/imgs/doc1img1.png" width="768" height="2" alt="" style="margin: 0 auto 0 0; display: block; "/></span>
+               <span style="font-weight:bold;" dir="ltr">
+                  <![CDATA[&nbsp;]]>
+               </span>
+            </p>
+            <p dir="rtl" style="margin-top:0pt; width:50%; margin-bottom:0pt; text-align:center; line-height:115%; font-size:16pt;"><span style="font-family:'PT Bold Heading';">طلب إشتراك مؤمن عليه</span></p>
+            <p dir="rtl" style="margin-top:12pt; margin-bottom:0pt; line-height:115%; font-size:14pt;">
+               <span style="height:0pt; margin-top:-12pt; display:block; position:absolute; z-index:1;"><br/></span><strong><span style="font-family:Arial;">الفئة :</span></strong>
+               <strong>
+                  <span style="font-family:Arial;">
+                     <![CDATA[&nbsp;]]> <img src="/employee_froms/static/src/imgs/doc1img4.png" width="33" height="59" alt=""/>
+                  </span>
+               </strong>
+               <strong><span style="font-family:Arial;">عاملين لدى الغير</span></strong>
+               <strong>
+                  <span style="font-family:Arial;">
+                     <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <img src="/employee_froms/static/src/imgs/doc1img5.png" width="33" height="57" alt=""/><![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]>
+                     <img src="/employee_froms/static/src/imgs/doc1img6.png" width="33" height="59" alt=""/><![CDATA[&nbsp;]]> 
+                  </span>
+               </strong>
+               <strong><span style="font-family:Arial;">أصحاب أعمال 
+               <img src="/employee_froms/static/src/imgs/doc1img5.png" width="33" height="57" alt=""/></span></strong>
+            </p>
+            <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; line-height:normal; font-size:14pt;">
+               <strong>
+                  <span style="font-family:Arial;">
+                     <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]>
+                  </span>
+               </strong>
+               <strong><span style="font-family:Arial;">المصريين بالخارج</span></strong>
+               <strong>
+                  <span style="font-family:Arial;">
+                     <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]>
+                  </span>
+               </strong>
+               <strong>
+                  <span style="font-family:Arial;">
+                     عمالة غير منتظمة<![CDATA[&nbsp;]]>
+                  </span>
+               </strong>
+            </p>
+            <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; line-height:normal; font-size:4pt;">
+               <![CDATA[&nbsp;]]>
+            </p>
+            <p dir="rtl" style="margin-top:0pt; margin-bottom:10pt; line-height:normal; font-size:14pt;">
+               <strong><span style="font-family:Arial;">رقم المنشأة :</span></strong>
+               <strong>
+                  <span style="font-family:Arial;">
+                     <![CDATA[&nbsp;]]><img src="/employee_froms/static/src/imgs/doc1img8.png" width="312" height="29" alt=""/><![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]>
+                  </span>
+               </strong>
+               <strong><span style="font-family:Arial;">قطاع المنشأة : <img src="/employee_froms/static/src/imgs/doc1img9.png" width="65" height="29" alt=""/></span></strong>
+            </p>
+            <p dir="rtl" style="margin-top:0pt; margin-bottom:10pt; line-height:normal; font-size:14pt;">
+               <span style="height:0pt; display:block; position:absolute; z-index:8;"><br/><img src="/employee_froms/static/src/imgs/doc1img11.png" width="746" height="44" alt="" style="margin: 0 auto 0 0; display: block; "/></span><strong><span style="font-family:Arial;">إسم المنشأة :</span></strong>
+               <strong>
+                  <span style="font-family:Arial;">
+                     <![CDATA[&nbsp;]]><![CDATA[&nbsp;]]>
+                  </span>
+               </strong>
+               <strong>
+                  <span style="font-family:Arial;">
+                     <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]><![CDATA[&nbsp;]]>
+                  </span>
+               </strong>
+               <strong>
+                  <span style="font-family:Arial;">
+                     <![CDATA[&nbsp;]]>
+                  </span>
+               </strong>
+               <strong>
+                  <span style="font-family:Arial;">
+                     <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]>
+                  </span>
+               </strong>
+               <strong>
+                  <span style="font-family:Arial;">
+                     رقم التسجيل الضريبي للمنشأة<![CDATA[&nbsp;]]>
+                  </span>
+               </strong>
+               <strong><span style="font-family:Arial; font-size:8pt;">:</span></strong>
+               <strong>
+                  <span style="font-family:Arial; font-size:8pt;">
+                     <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]>
+                  </span>
+               </strong>
+               <strong>
+                  <span style="font-family:Arial; font-size:12pt;">
+                     <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]><![CDATA[&nbsp;]]>
+                  </span>
+               </strong>
+            </p>
+            <p dir="rtl" style="margin-top:0pt; margin-bottom:10pt; line-height:normal; font-size:8pt;">
+               <span dir="ltr">
+                  <![CDATA[&nbsp;]]>
+               </span>
+            </p>
+            <p dir="rtl" style="margin-top:0pt; margin-bottom:10pt; line-height:115%; font-size:8pt;">
+               <![CDATA[&nbsp;]]>
+            </p>
+        <table class="w-100">
+            <tbody>
+                <tr class="row">
+                <td class="col-md-12 title">الرقم التأميني:
+                    <span t-foreach="str(doc.sin_no)[::-1]" t-as="digit">
+                    <span t-esc="digit" style="display: inline-block; width: 25px; height: 25px; border: 1px solid #000; text-align: center; margin-right: 2px;"/>
+                    </span>
+                </td>
+                </tr>
+                <tr class="row">
+                <td class="col-md-12 title">الرقم القومي:
+                    <span t-foreach="str(doc.employee_id.identification_id)[::-1]" t-as="digit">
+                    <span t-esc="digit" style="display: inline-block; width: 25px; height: 25px; border: 1px solid #000; text-align: center; margin-right: 2px;"/>
+                    </span>
+                </td>
+                </tr>
+            </tbody>
+        </table>
+            <p dir="rtl" style="margin-top:0pt; margin-bottom:10pt; line-height:115%; font-size:14pt;">
+               <strong>
+                  <span style="font-family:Arial;">
+                     أسم المؤمن عليه<![CDATA[&nbsp;]]>
+                  </span>
+               </strong>
+               <strong>:</strong>
+               <t t-esc="doc.employee_id.name"/>
+               <strong>
+                   <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]>
+               </strong>
+               <strong>
+                  <span style="font-family:Arial;">
+                     الجنسية<![CDATA[&nbsp;]]>
+                  </span>
+               </strong>
+               <strong>
+                  :<![CDATA[&nbsp;]]>
+               </strong>
+            </p>
+            <p dir="rtl" style="margin-top:0pt; margin-bottom:10pt; line-height:115%; font-size:14pt;">
+               <strong>
+                  <span style="font-family:Arial;">
+                     المؤهل<![CDATA[&nbsp;]]>
+                  </span>
+               </strong>
+               <strong>:</strong>
+               <strong>
+                  <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]><![CDATA[&nbsp;]]>
+               </strong>
+               <strong>
+                  <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]><![CDATA[&nbsp;]]>
+               </strong>
+               <strong>
+                  <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]>
+               </strong>
+               <strong>
+                  <span style="font-family:Arial;">
+                     المهنة<![CDATA[&nbsp;]]>
+                  </span>
+               </strong>
+               <strong>:</strong>
+               <strong>
+                  <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]><img src="/employee_froms/static/src/imgs/doc1img13.png" width="219" height="29" alt=""/><![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]>
+               </strong>
+               <strong>
+                  <![CDATA[&nbsp;]]><![CDATA[&nbsp;]]>
+               </strong>
+               <strong>
+                  <span style="font-family:Arial;">
+                     المسمى<![CDATA[&nbsp;]]>
+                  </span>
+               </strong>
+               <strong>
+                  :<![CDATA[&nbsp;]]>
+               </strong>
+            </p>
+            <p dir="rtl" style="margin-top:0pt; margin-bottom:10pt; line-height:115%; font-size:14pt;">
+               <strong>
+                  <span style="font-family:Arial;">
+                     تاريخ بدء الإشتراك<![CDATA[&nbsp;]]>
+                  </span>
+               </strong>
+               <strong>:<img src="/employee_froms/static/src/imgs/doc1img15.png" width="300" height="29" alt=""/></strong>
+            </p>
+            <p dir="rtl" style="margin-top:0pt; margin-bottom:10pt; line-height:115%; font-size:14pt;">
+               <strong>
+                  <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]><img src="/employee_froms/static/src/imgs/doc1img16.png" width="76" height="52" alt=""/><![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]>
+               </strong>
+               <strong>
+                  <span style="font-family:Arial;">
+                     المسمى<![CDATA[&nbsp;]]>
+                  </span>
+               </strong>
+               <strong>
+                  :<![CDATA[&nbsp;]]>
+               </strong>
+               <strong>
+                  <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]>
+               </strong>
+               <strong>
+                  <img src="/employee_froms/static/src/imgs/doc1img17.png" width="92" height="52" alt=""/><![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> 
+               </strong>
+               <strong>
+                  <span style="font-family:Arial;">
+                     المسمى<![CDATA[&nbsp;]]>
+                  </span>
+               </strong>
+               <strong>
+                  :<![CDATA[&nbsp;]]>
+               </strong>
+               <strong>
+                  <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]><![CDATA[&nbsp;]]>
+               </strong>
+               <strong>
+                  <span style="font-family:Arial;">
+                     القطاع<![CDATA[&nbsp;]]>
+                  </span>
+               </strong>
+               <strong>
+                  :<![CDATA[&nbsp;]]>
+               </strong>
+               <strong>
+                  <![CDATA[&nbsp;]]><img src="/employee_froms/static/src/imgs/doc1img18.png" width="33" height="30" alt=""/>
+               </strong>
+            </p>
+            <p dir="rtl" style="margin-top:12pt; margin-bottom:10pt; line-height:115%; font-size:1pt;">
+               <strong>
+                  <![CDATA[&nbsp;]]>
+               </strong>
+            </p>
+            <p dir="rtl" style="margin-top:12pt; margin-bottom:10pt; line-height:115%; font-size:14pt;">
+               <strong>
+                  <span style="font-family:Arial;">
+                     أجر أساسى<![CDATA[&nbsp;]]>
+                  </span>
+               </strong>
+               <strong>:</strong>
+               <strong>
+                  <![CDATA[&nbsp;]]> <img src="/employee_froms/static/src/imgs/doc1img19.png" alt="" style="width: 150px; height: 58.4906px;"/><![CDATA[&nbsp;]]> 
+               </strong>
+               <strong><span style="font-family:Arial;">أجر</span></strong>
+               <strong>
+                  /<![CDATA[&nbsp;]]>
+               </strong>
+               <strong>
+                  <span style="font-family:Arial;">
+                     دخل الإشتراك<![CDATA[&nbsp;]]>
+                  </span>
+               </strong>
+               <strong>:</strong>
+               <strong>
+                  <![CDATA[&nbsp;]]> <img src="/employee_froms/static/src/imgs/doc1img19.png" alt="" style="width: 147px; height: 60.76px;"/><![CDATA[&nbsp;]]> 
+               </strong>
+               <strong>
+                  <span style="font-family:Arial;">
+                     الأجر الشامل<![CDATA[&nbsp;]]>
+                  </span>
+               </strong>
+               <strong>:<img src="/employee_froms/static/src/imgs/doc1img19.png" alt="" style="width: 140px; height: 53.7107px;"/></strong>
+            </p>
+            <p dir="rtl" style="margin-top:12pt; margin-bottom:10pt;">
+               <strong>
+                  (<![CDATA[&nbsp;]]>
+               </strong>
+               <strong>
+                  <span style="font-family:Arial;">
+                     لحساب<![CDATA[&nbsp;]]>
+                  </span>
+               </strong>
+               <strong>
+                  7 %<![CDATA[&nbsp;]]>
+               </strong>
+               <strong>
+                  <span style="font-family:Arial;">
+                     وفقاً لقانون العمل<![CDATA[&nbsp;]]>
+                  </span>
+               </strong>
+               <strong>)</strong>
+               <strong>
+                  <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]>
+               </strong>
+               <strong>
+                  (<![CDATA[&nbsp;]]>
+               </strong>
+               <strong>
+                  <span style="font-family:Arial;">
+                     لحساب اشتراك التأمين الصحى الشامل<![CDATA[&nbsp;]]>
+                  </span>
+               </strong>
+               <strong>)</strong>
+               <strong>
+                  <![CDATA[&nbsp;]]><![CDATA[&nbsp;]]>
+               </strong>
+            </p>
+            <p dir="rtl" style="margin-top:12pt; margin-bottom:10pt;">
+               <strong>
+                  <span style="font-family:Arial;">
+                     صلة القرابة بصاحب العمل<![CDATA[&nbsp;]]>
+                  </span>
+               </strong>
+               <strong>:</strong>
+               <strong>
+                  <![CDATA[&nbsp;]]> <img src="/employee_froms/static/src/imgs/doc1img18.png" width="33" height="29" alt=""/><![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> 
+               </strong>
+               <strong>
+                  <span style="font-family:Arial;">
+                     تستوفى للأقارب حتى الدرجة الثانية بالمنشآت الفردية<![CDATA[&nbsp;]]>
+                  </span>
+               </strong>
+            </p>
+            <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt;">
+               <strong>
+                  <span style="font-family:Arial;">
+                     بيانات العجز إن وجدت<![CDATA[&nbsp;]]>
+                  </span>
+               </strong>
+               <strong>
+                  :<![CDATA[&nbsp;]]>
+               </strong>
+               <strong>
+                  <span style="font-family:Arial;">
+                     تاريخ بداية العجز<![CDATA[&nbsp;]]>
+                  </span>
+               </strong>
+               <strong>:</strong>
+               <strong>
+                  <![CDATA[&nbsp;]]><img src="/employee_froms/static/src/imgs/doc1img15.png" width="300" height="29" alt=""/><![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]>
+               </strong>
+               <strong>
+                  <span style="font-family:Arial;">
+                     نسبة العجز<![CDATA[&nbsp;]]>
+                  </span>
+               </strong>
+               <strong>
+                  :<![CDATA[&nbsp;]]>
+               </strong>
+               <strong>
+                  <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]><![CDATA[&nbsp;]]>
+               </strong>
+               <strong>
+                  <![CDATA[&nbsp;]]>
+               </strong>
+               <strong>
+                  <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]>
+               </strong>
+               <strong>
+                  <![CDATA[&nbsp;]]>
+               </strong>
+               <strong>
+                  <![CDATA[&nbsp;]]>%
+               </strong>
+            </p>
+            <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; line-height:115%; font-size:7pt;">
+               <span style="height:0pt; display:block; position:absolute; z-index:21;"><img src="/employee_froms/static/src/imgs/mahahelelqma.png" width="746" height="36" alt="" style="margin: 0 auto 0 0; display: block; "/><br/></span>
+               <strong>
+                  <![CDATA[&nbsp;]]>
+               </strong>
+            </p>
+            <p dir="rtl" style="margin-top:12pt; margin-bottom:0pt;">
+               <span style="line-height:115%; font-size:7pt;">
+                  <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]>
+               </span>
+               <span style="font-family:'PT Simple Bold Ruled';">العنوان داخل مصر</span>
+               <span style="font-family:'PT Simple Bold Ruled';">
+                  <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]>
+               </span>
+               <span style="font-family:'PT Simple Bold Ruled';">
+                  العنوان خارج مصر<![CDATA[&nbsp;]]>
+               </span>
+            </p>
+            <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; line-height:150%;">
+               <strong>
+                  <span style="font-family:Arial;">
+                     <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]>
+                  </span>
+               </strong>
+               <strong>
+                  <span style="font-family:Arial;">
+                     <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]><![CDATA[&nbsp;]]>
+                  </span>
+               </strong>
+            </p>
+            <div class="container">
+               <div class="text-block">
+                  <p>عقار رقم :<img src="/employee_froms/static/src/imgs/doc1img20.png" width="129" height="22" alt=""/></p>
+                  <p>شياخة / قرية :<img src="/employee_froms/static/src/imgs/doc1img21.png" width="65" height="22" alt=""/></p>
+                  <p>شارع / حارة :</p>
+                  <span>
+                     قسم / مركز : <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <img src="/employee_froms/static/src/imgs/doc1img21.png" width="45" height="22" alt="" style="text-align: start; color: rgb(0, 0, 0); background-color: rgb(255, 255, 255); font-size: medium;"/>
+                  </span>
+                  <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]>
+                  <span>
+                     محاقطة: <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]><img src="/employee_froms/static/src/imgs/doc1img21.png" width="45" height="22" alt="" style="text-align: start; color: rgb(0, 0, 0); background-color: rgb(255, 255, 255); font-size: medium;"/>
+                  </span>
+                  <br/><br/><br/>
+                  <p>توقيع المؤمن عليه : ........................</p>
+               </div>
+               <div class="vertical-line"><br/></div>
+               <div class="text-block">
+                  <p>
+                     الدولة : <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]><img src="/employee_froms/static/src/imgs/doc1img21.png" width="45" height="22" alt=""/>
+                  </p>
+                  <p>
+                     المدينة : <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]><img src="/employee_froms/static/src/imgs/doc1img21.png" width="42" height="22" alt=""/>
+                  </p>
+                  <p>جهة العمل :</p>
+                  <br/><br/><br/>
+                  <p>توقيع المدير المسئول : .........................</p>
+               </div>
+            </div>
+            <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; line-height:150%; font-size:12pt;">
+               <strong><span style="line-height:150%; font-family:Arial; font-size:11pt;">رقم التليفون :</span></strong>
+               <strong>
+                  <span style="line-height:150%; font-family:Arial; font-size:11pt;">
+                     <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]><![CDATA[&nbsp;]]>
+                  </span>
+               </strong>
+               <strong>
+                  <span style="line-height:150%; font-family:Arial; font-size:11pt;">
+                     <![CDATA[&nbsp;]]><![CDATA[&nbsp;]]>
+                  </span>
+               </strong>
+            </p>
+            <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; line-height:150%;">
+               <strong><span style="font-family:Arial;">البريد الإلكترونى :</span></strong>
+               <strong>
+                  <span style="font-family:Arial;">
+                     <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]>
+                  </span>
+               </strong>
+               <strong>
+                  <span style="font-family:Arial;">
+                     <![CDATA[&nbsp;]]>
+                  </span>
+               </strong>
+            </p>
+            <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; line-height:150%;">
+               <strong>
+                  <span style="font-family:Arial;">
+                     تحريرا فى :<![CDATA[&nbsp;]]>
+                  </span>
+               </strong>
+               <strong>
+                  <span style="font-family:Arial;">
+                     <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]>
+                  </span>
+               </strong>
+               <strong>
+                  <span style="font-family:Arial;">
+                     <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]>
+                  </span>
+               </strong>
+               <strong>
+                  <span style="font-family:Arial;">
+                     <![CDATA[&nbsp;]]><![CDATA[&nbsp;]]>
+                  </span>
+               </strong>
+               <strong>
+                  <span style="font-family:Arial;">
+                     تم مطابقة التوقيع بمعرفتى :<![CDATA[&nbsp;]]>
+                  </span>
+               </strong>
+               <strong><span style="line-height:150%; font-family:Arial; font-size:6pt;">............................................................................</span></strong>
+            </p>
+            <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; line-height:150%;">
+               <strong>
+                  <span style="font-family:Arial;">
+                     <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]><![CDATA[&nbsp;]]>
+                  </span>
+               </strong>
+            </p>
+            <div dir="rtl" style="text-align:left;">
+               <table cellspacing="0" cellpadding="0" style="border:0.75pt solid #000000; border-collapse:collapse;">
+                  <tbody>
+                     <tr style="height:16.35pt;">
+                        <td style="width:103.5pt; border-left-style:solid; border-left-width:0.75pt; border-bottom-style:solid; border-bottom-width:0.75pt; padding-right:5.03pt; padding-left:5.03pt; vertical-align:middle;">
+                           <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:11pt;">
+                              <strong>
+                                 <span style="font-family:Arial;">
+                                    البيان<![CDATA[&nbsp;]]>
+                                 </span>
+                              </strong>
+                           </p>
+                        </td>
+                        <td style="width:103.5pt; border-right-style:solid; border-right-width:0.75pt; border-left-style:solid; border-left-width:0.75pt; border-bottom-style:solid; border-bottom-width:0.75pt; padding-right:5.03pt; padding-left:5.03pt; vertical-align:middle;">
+                           <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:11pt;"><strong><span style="font-family:Arial;">مستلم الطلب</span></strong></p>
+                        </td>
+                        <td style="width:103.5pt; border-right-style:solid; border-right-width:0.75pt; border-left-style:solid; border-left-width:0.75pt; border-bottom-style:solid; border-bottom-width:0.75pt; padding-right:5.03pt; padding-left:5.03pt; vertical-align:middle;">
+                           <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:11pt;"><strong><span style="font-family:Arial;">المراجع</span></strong></p>
+                        </td>
+                        <td style="width:103.5pt; border-right-style:solid; border-right-width:0.75pt; border-left-style:solid; border-left-width:0.75pt; border-bottom-style:solid; border-bottom-width:0.75pt; padding-right:5.03pt; padding-left:5.03pt; vertical-align:middle;">
+                           <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:11pt;">
+                              <strong>
+                                 <span style="font-family:Arial;">
+                                    سجل آلياً بمعرفة<![CDATA[&nbsp;]]>
+                                 </span>
+                              </strong>
+                           </p>
+                        </td>
+                        <td style="width:103.5pt; border-right-style:solid; border-right-width:0.75pt; border-bottom-style:solid; border-bottom-width:0.75pt; padding-right:5.03pt; padding-left:5.03pt; vertical-align:middle;">
+                           <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:11pt;"><strong><span style="font-family:Arial;">روجع آلياً بمعرفة</span></strong></p>
+                        </td>
+                     </tr>
+                     <tr style="height:16.35pt;">
+                        <td style="width:103.5pt; border-top-style:solid; border-top-width:0.75pt; border-left-style:solid; border-left-width:0.75pt; border-bottom-style:solid; border-bottom-width:0.75pt; padding-right:5.03pt; padding-left:5.03pt; vertical-align:middle;">
+                           <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:11pt;"><strong><span style="font-family:Arial;">الإســــــــــــم</span></strong></p>
+                        </td>
+                        <td style="width:103.5pt; border-style:solid; border-width:0.75pt; padding-right:5.03pt; padding-left:5.03pt; vertical-align:middle;">
+                           <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:11pt;">
+                              <strong>
+                                 <span style="font-family:Arial;">
+                                    <![CDATA[&nbsp;]]>
+                                 </span>
+                              </strong>
+                           </p>
+                        </td>
+                        <td style="width:103.5pt; border-style:solid; border-width:0.75pt; padding-right:5.03pt; padding-left:5.03pt; vertical-align:middle;">
+                           <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:11pt;">
+                              <strong>
+                                 <span style="font-family:Arial;">
+                                    <![CDATA[&nbsp;]]>
+                                 </span>
+                              </strong>
+                           </p>
+                        </td>
+                        <td style="width:103.5pt; border-style:solid; border-width:0.75pt; padding-right:5.03pt; padding-left:5.03pt; vertical-align:middle;">
+                           <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:11pt;">
+                              <strong>
+                                 <span style="font-family:Arial;">
+                                    <![CDATA[&nbsp;]]>
+                                 </span>
+                              </strong>
+                           </p>
+                        </td>
+                        <td style="width:103.5pt; border-top-style:solid; border-top-width:0.75pt; border-right-style:solid; border-right-width:0.75pt; border-bottom-style:solid; border-bottom-width:0.75pt; padding-right:5.03pt; padding-left:5.03pt; vertical-align:middle;">
+                           <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:11pt;">
+                              <strong>
+                                 <span style="font-family:Arial;">
+                                    <![CDATA[&nbsp;]]>
+                                 </span>
+                              </strong>
+                           </p>
+                        </td>
+                     </tr>
+                     <tr style="height:16.35pt;">
+                        <td style="width:103.5pt; border-top-style:solid; border-top-width:0.75pt; border-left-style:solid; border-left-width:0.75pt; border-bottom-style:solid; border-bottom-width:0.75pt; padding-right:5.03pt; padding-left:5.03pt; vertical-align:middle;">
+                           <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:11pt;"><strong><span style="font-family:Arial;">التوقيــــــــع</span></strong></p>
+                        </td>
+                        <td style="width:103.5pt; border-style:solid; border-width:0.75pt; padding-right:5.03pt; padding-left:5.03pt; vertical-align:middle;">
+                           <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:11pt;">
+                              <strong>
+                                 <span style="font-family:Arial;">
+                                    <![CDATA[&nbsp;]]>
+                                 </span>
+                              </strong>
+                           </p>
+                        </td>
+                        <td style="width:103.5pt; border-style:solid; border-width:0.75pt; padding-right:5.03pt; padding-left:5.03pt; vertical-align:middle;">
+                           <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:11pt;">
+                              <strong>
+                                 <span style="font-family:Arial;">
+                                    <![CDATA[&nbsp;]]>
+                                 </span>
+                              </strong>
+                           </p>
+                        </td>
+                        <td style="width:103.5pt; border-style:solid; border-width:0.75pt; padding-right:5.03pt; padding-left:5.03pt; vertical-align:middle;">
+                           <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:11pt;">
+                              <strong>
+                                 <span style="font-family:Arial;">
+                                    <![CDATA[&nbsp;]]>
+                                 </span>
+                              </strong>
+                           </p>
+                        </td>
+                        <td style="width:103.5pt; border-top-style:solid; border-top-width:0.75pt; border-right-style:solid; border-right-width:0.75pt; border-bottom-style:solid; border-bottom-width:0.75pt; padding-right:5.03pt; padding-left:5.03pt; vertical-align:middle;">
+                           <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:11pt;">
+                              <strong>
+                                 <span style="font-family:Arial;">
+                                    <![CDATA[&nbsp;]]>
+                                 </span>
+                              </strong>
+                           </p>
+                        </td>
+                     </tr>
+                     <tr style="height:16.35pt;">
+                        <td style="width:103.5pt; border-top-style:solid; border-top-width:0.75pt; border-left-style:solid; border-left-width:0.75pt; padding-right:5.03pt; padding-left:5.03pt; vertical-align:middle;">
+                           <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:11pt;"><strong><span style="font-family:Arial;">التــــــــاريخ</span></strong></p>
+                        </td>
+                        <td style="width:103.5pt; border-top-style:solid; border-top-width:0.75pt; border-right-style:solid; border-right-width:0.75pt; border-left-style:solid; border-left-width:0.75pt; padding-right:5.03pt; padding-left:5.03pt; vertical-align:middle;">
+                           <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:11pt;">
+                              <strong>
+                                 <span style="font-family:Arial;">
+                                    <![CDATA[&nbsp;]]>
+                                 </span>
+                              </strong>
+                           </p>
+                        </td>
+                        <td style="width:103.5pt; border-top-style:solid; border-top-width:0.75pt; border-right-style:solid; border-right-width:0.75pt; border-left-style:solid; border-left-width:0.75pt; padding-right:5.03pt; padding-left:5.03pt; vertical-align:middle;">
+                           <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:11pt;">
+                              <strong>
+                                 <span style="font-family:Arial;">
+                                    <![CDATA[&nbsp;]]>
+                                 </span>
+                              </strong>
+                           </p>
+                        </td>
+                        <td style="width:103.5pt; border-top-style:solid; border-top-width:0.75pt; border-right-style:solid; border-right-width:0.75pt; border-left-style:solid; border-left-width:0.75pt; padding-right:5.03pt; padding-left:5.03pt; vertical-align:middle;">
+                           <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:11pt;">
+                              <strong>
+                                 <span style="font-family:Arial;">
+                                    <![CDATA[&nbsp;]]>
+                                 </span>
+                              </strong>
+                           </p>
+                        </td>
+                        <td style="width:103.5pt; border-top-style:solid; border-top-width:0.75pt; border-right-style:solid; border-right-width:0.75pt; padding-right:5.03pt; padding-left:5.03pt; vertical-align:middle;">
+                           <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:11pt;">
+                              <strong>
+                                 <span style="font-family:Arial;">
+                                    <![CDATA[&nbsp;]]>
+                                 </span>
+                              </strong>
+                           </p>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </div>
+            <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; line-height:115%; font-size:8pt;">
+               <strong>
+                  <span style="font-family:Arial;">
+                     <![CDATA[&nbsp;]]>
+                  </span>
+               </strong>
+            </p>
+            <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; line-height:115%; font-size:12pt;">
+               <strong><span style="font-family:Arial;">ملحوظة :على صاحب العمل والعامل الإطلاع على التوجيهات الموضحة خلف النموذج مع التوقيع على الإقرار</span></strong>
+               <strong>
+                  <span style="font-family:Arial;">
+                     <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]> <![CDATA[&nbsp;]]>
+                  </span>
+               </strong>
+               <strong><span style="font-family:Arial;">( أنظر خلفه )</span></strong>
+            </p>
+         </div>
+      </t>
+      </t>
+   </t>
+</t>
+</template>
 
 
 </data>

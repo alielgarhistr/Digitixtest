@@ -11,12 +11,12 @@
     'category': 'Human Resources',
     'depends': ['base', 'hr', 'hr_contract','web','hr_holidays','l10n_ch'],
     'data': [
-        # 'views/res_company_view.xml',
-        'report/added_fields.xml',
+        'views/res_company_view.xml',
+        'views/added_fields.xml',
+        'report/report_paper_format.xml',
         'report/contract_report.xml',
         'report/report_contract.xml',
-        'report/report_paper_format.xml',
-        'report/test_report.xml',
+        'report/employee_contract.xml',
     ],
     'images': ['static/description/banner.jpg'],
     'assets':{
