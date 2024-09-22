@@ -17,6 +17,8 @@
         'report/contract_report.xml',
         'report/report_contract.xml',
         'report/employee_contract.xml',
+        'report/employee_contract2.xml',
+
     ],
     'images': ['static/description/banner.jpg'],
     'assets':{

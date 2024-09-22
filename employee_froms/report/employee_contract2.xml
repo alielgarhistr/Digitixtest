@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<data>
+
+    <record id="employee_contract_report_test_record" model="ir.actions.report">
+        <field name="name">عقد تحت الاختبار</field>
+        <field name="model">hr.contract</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">employee_froms.contract_report_test_record</field>
+        <field name="report_file">employee_froms.contract_report_test_record</field>
+        <field name="print_report_name">'%s' % object.name</field>
+        <field name="binding_model_id" ref="hr_contract.model_hr_contract"/>
+        <field name="binding_type">report</field>
+    </record>
+
+<template id="contract_report_test_record" >
+<t t-call="web.html_container">
+<t t-call="web.basic_layout">
+
+<style>
+                        body {
+                            font-family: 'Arfont';
+                            direction: rtl;
+                            text-align: right;
+                            color: black;
+                            font-size:22px;
+                        } 
+                        
+</style>
+<t t-foreach="docs" t-as="o">
+<div class="space"  style="padding-top:40px;height:60px;"></div>
+<div class="header">
+        <p dir="rtl" style="margin-top:40px; margin-bottom:0pt; text-align:center;"><strong><u><span style="font-family:'Arabic Transparent'; font-size:20pt;">عقد تحت الاختبار<![CDATA[&nbsp;]]></span></u></strong></p>
+</div>​
+
+<div class="contract-one">
+يتقاضى الطرف الثاني أجرشهري وقدره  :<td t-esc="o.wage"/> . ( <t t-esc="o.wage_in_ar_words"/> جنيه مصري) 
+
+ <t t-if="o.wage &lt;= 6000">
+ ومنهم <td t-esc="o.basic_salary * 0.1875"/> ج . م 
+ وهذا المبلغ حصه صاحب العمل بالتامينات وذلك طبقا للقرار رقم27 لسنه 2024 
+ </t>
+ومنهم بدل سكن شهري وقدره :<t t-esc="o.house_allowance_val"/> /ج. م (<t t-esc="o.house_allowance_val_in_ar_words"/> جنيه مصري)
+ومنهم بدل ملبس شهري وقدره ...... /ج. م (...............) وذلك عن كل شهر ميلادي يعمله لدى الشركة وذلك إما نقدا أو بواسطة شيك أو تحويل مصرفي وذلك بحسب ما يرتئيه الطرف الأول.
+</div>
+<br/>
+<div class="contract-two">
+<div>
+<span>1-1</span><span>إن مدّة عقد العمل هذا : <t t-esc="o.date_start"/></span> <span>وتنتهى في : <t t-esc="o.date_end"/></span> <span>وفقا لأحكام قانون العمل المصري، ويسري مفعول هذا العقد ابتداء من تاريخ مباشرة الطرف الثاني عمله لدى الطرف الأول.</span>
+</div>
+<br/>
+<div>
+<span>1-2</span>
+<span>
+ ويعتبر الطرف الثاني معينا تحت الاختبار لدي الطرف الاول لمده ثلاثه اشهر وفي خلال هذه الفتره  يكون للطرف الاول الحق في انهاء او فسخ هذا العقد فورا دون الحاجه الي اخطار سابق و دون دفع اي مبالغ بصفه تعويض او مكافأه ،  وعند انتهاء مده الاختبار ومالم يكن الطرف الاول قد استعمل حقه في فسخ العقد يعتبر الطرف الثاني معينا في خدمه الطرف الاول مده هذا العقد وحتي  انتهائه .
+</span>
+</div>
+
+
+</div>
+</t>
+</t>
+</t>
+</template>
+</data>
+</odoo>
